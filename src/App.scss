@@ -1,0 +1,30 @@
+@media screen and (min-width: 1408px) {
+  .container:not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width: 1344px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+}
+
+@media screen and (min-width: 1344px) {
+  .container-fluid {
+    max-width: 1152px;
+  }
+}
+.container-fluid {
+  max-width: none !important;
+  width: 100%;
+}
+// .AppMain {
+//   overflow-y: scroll;
+// }
