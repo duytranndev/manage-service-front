@@ -1,11 +1,13 @@
 import React from 'react'
 import './index.scss'
 
-export default function TermsCondition() {
+const TermsCondition = (): JSX.Element => {
   return (
     <>
       <div className='container terms-condition'>
-        <h2>Điều khoản và điều kiện sử dụng Cổng Dịch vụ công Trực Tuyến</h2>
+        <div className='title'>
+          <h2>Điều khoản và điều kiện sử dụng Cổng Dịch vụ công Trực Tuyến</h2>
+        </div>
         <h4>
           Bằng việc sử dụng các Dịch vụ trên Cổng Dịch vụ công Quốc gia, tổ chức, cá nhân sử dụng mặc nhiên chấp thuận
           và cam kết thực hiện các điều khoản và điều kiện sử dụng sau đây:
@@ -105,3 +107,5 @@ export default function TermsCondition() {
     </>
   )
 }
+
+export default TermsCondition

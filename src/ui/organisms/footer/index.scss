@@ -1,0 +1,69 @@
+.page-footer {
+  .container-footer {
+    background: #903938;
+    color: #fff;
+    padding: 10px 0px;
+    .row-about {
+      text-align: left;
+      .add {
+        display: inline-block;
+        margin: 5px 0px;
+        display: block;
+        color: #fff;
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+      .member {
+        margin-left: 20px;
+        .add {
+          a {
+            color: #fff;
+          }
+          &:hover a {
+            color: rgb(184, 182, 182);
+          }
+        }
+      }
+      .url {
+        .add {
+          a {
+            color: #fff;
+          }
+          &:hover a {
+            color: rgb(184, 182, 182);
+          }
+        }
+      }
+    }
+    .row-title {
+      text-align: left;
+      font-size: 22px;
+      .add {
+        display: inline-block;
+        margin: 5px 0px;
+        display: block;
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+  .row-contact {
+    text-align: left;
+    padding: 10px 0px;
+    background-color: rgb(117, 113, 113);
+    color: white;
+    font-size: 16px;
+    .add {
+      display: inline-block;
+      margin: 5px 0px;
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+    p {
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -1,130 +1,54 @@
-* {
-  margin: 0;
-  padding: 0;
-  .banner {
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.page-content {
+  .hot-news {
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.391), rgba(0, 0, 0, 0.391)), url(./images/unnamed.jpg);
-    background-size: cover;
-    background-position: center;
-    background-position-y: -260px;
-    transform: translateY(0%);
-    text-align: center;
-    color: #fff;
-    h1 {
-      font-size: 70px;
-      padding-top: 80px;
-      color: white;
-      font-family: 'Times New Roman', Times, serif;
-    }
-    p {
-      margin: 20px auto;
-      font-weight: 100;
-      line-height: 25px;
-    }
-    .button {
-      width: 200px;
-      padding: 15px 0;
-      text-align: center;
-      margin: 30px 10px;
-      border-radius: 25px;
-      font-weight: bold;
-      border: 2px solid #f6b93b;
-      background: transparent;
-      color: #fff;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .span {
-      background: #f6b93b;
-      height: 100%;
-      width: 0;
-      border-radius: 25px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      z-index: -1;
-      transition: 0.5s;
-    }
-    .button:hover .span {
-      width: 100%;
-      color: black;
-    }
-    .button:hover {
-      border: none;
-      color: black;
-      transition: 0.4s;
-    }
+    height: 150px;
+    background-color: aquamarine;
+    // background-image: url(https://dichvucong.gov.vn/p/home/theme/img/bg-news.jpg);
+    // background-repeat: no-repeat;
+    // background-size: 100%;
   }
-
-  .menu {
-    background-position: center;
-    width: 100%;
-    text-align: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.391), rgba(0, 0, 0, 0.391)),
-      url(https://dichvucong.gov.vn/p/home/theme/img/home/banner.jpg);
-
-    color: #fff;
-    .navbar {
-      width: 85%;
-      margin: auto;
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .vienlogo {
-      width: 55px;
-      height: 55px;
-      display: inline-block;
-      overflow: hidden;
-      border-radius: 50%;
-    }
-    .logo {
-      width: 95px;
-      margin-left: -20px;
-      margin-top: -3px;
-    }
-
-    .navbar ul li {
-      list-style: none;
-      display: inline-block;
-      margin: 0 20px;
-      position: relative;
-    }
-    .navbar ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-    .navbar ul li::after {
-      content: '';
-      height: 3px;
-      width: 0;
-      background: #f6b93b;
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-      transition: 0.5s;
-    }
-    .navbar ul li:hover::after {
-      width: 100%;
-    }
-    .nutlogin {
-      width: 150px;
-      padding: 10px 0;
-      color: white;
-      border: #f6b93b solid;
-      cursor: pointer;
-      background: transparent;
-      border-radius: 5px;
-      font-size: 18px;
-    }
-    .nutlogin:hover {
-      background: #eb2f06;
-      color: black;
+  .container-content {
+    .content-title {
+      .row-title {
+        text-align: center;
+        .col-xs-6 {
+          a {
+            .section {
+              font-size: 24px;
+              text-decoration: none;
+              font-weight: 600;
+              color: red;
+              font-family: 'Barlow', sans-serif;
+              border-bottom: 3px red solid;
+            }
+          }
+        }
+      }
+      .row-content {
+        text-align: left;
+        margin-top: -30px;
+        .col-xs-6 {
+          a {
+            .section {
+              font-size: 18px;
+              text-decoration: none;
+              font-weight: 500;
+              color: black;
+              font-family: 'Open Sans', sans-serif;
+              background-color: #f5f5f5;
+              margin: 7px;
+              padding: 5px 15px;
+              border-radius: 7px;
+              &:hover {
+                background-color: #e8eaf7;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

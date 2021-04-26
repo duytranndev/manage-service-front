@@ -1,9 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { createRef, useEffect, useRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import './index.scss'
 
 export default function HeaderComponent(): JSX.Element {
+  const myRef = createRef<HTMLDivElement>()
+  const prevScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const menu = document.querySelector('.menu') as HTMLDivElement
+      if (prevScrollY.current > 100) {
+        menu.classList.add('fixed')
+      }
+      if (prevScrollY.current < 100) {
+        menu.classList.remove('fixed')
+      }
+      prevScrollY.current = currentScrollY
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className='menu'>
+    <div ref={myRef} className='menu'>
       <div className='navbar'>
         <div>
           <Link to='' className='vienlogo'>
@@ -16,22 +36,22 @@ export default function HeaderComponent(): JSX.Element {
         </div>
         <ul>
           <li>
-            <Link to='/home'>HOME</Link>
+            <NavLink to='/home'>HOME</NavLink>
           </li>
           <li>
-            <Link to='/about'>GIỚI THIỆU</Link>
+            <NavLink to='/about'>GIỚI THIỆU</NavLink>
           </li>
           <li>
-            <Link to='/faq'>ĐIỀU KHOẢN SỬ DỤNG</Link>
+            <NavLink to='/faq'>ĐIỀU KHOẢN SỬ DỤNG</NavLink>
           </li>
           <li>
-            <a href='#'>TIN TỨC</a>
+            <a href='/news'>TIN TỨC</a>
           </li>
           <li>
-            <a href='#'>HƯỚNG DẪN SỬ DỤNG</a>
+            <a href='/how-to-use'>HƯỚNG DẪN SỬ DỤNG</a>
           </li>
           <li>
-            <a href='#'>Liên hệ</a>
+            <a href='/contact'>Liên hệ</a>
           </li>
         </ul>
         <button className='nutlogin'>DANG NHAP</button>
