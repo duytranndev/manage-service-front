@@ -1,13 +1,17 @@
 import { Action, applyMiddleware, combineReducers, createStore, Middleware } from 'redux'
 import thunk from 'redux-thunk'
+import { FieldReducer } from './reducers/field.reducer'
+import { UnitReducer } from './reducers/unit.reducer'
 
-const rootReducer = combineReducers({})
+const rootReducer = combineReducers({
+  field: FieldReducer,
+  unit: UnitReducer
+})
 
 const middleWare = [thunk]
 
 const logger: Middleware = () => (next: unknown) => (action: Action): void => {
   if (process.env.NODE_ENV !== 'production') {
-    console.log('Logger', action)
   }
   return typeof next === 'function' ? next(action) : undefined
 }

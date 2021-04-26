@@ -1,4 +1,3 @@
-import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import AboutPage from '../../pages/about'
 import DetailEventUnit from '../../pages/detail'
@@ -9,10 +8,10 @@ import TermsCondition from '../../pages/terms-and-condition'
 export default function AppRouting() {
   const routeList = [
     {
-      component: <Route key='5' path='/dvc-cong-dan/:slug' children={<DetailEventUnit />} exact />
+      component: <Route key='5' path='/dvc/cong-dan/:slug' children={<DetailEventUnit />} exact />
     },
     {
-      component: <Route key='6' path='/dvc-cong-dan' children={<DetailField />} exact />
+      component: <Route key='6' path='/dvc/:slug' children={<DetailField />} exact />
     },
     {
       component: <Route key='3' path='/faq' component={TermsCondition} exact />

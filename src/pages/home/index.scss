@@ -16,7 +16,7 @@
         text-align: center;
         .col-xs-6 {
           a {
-            .section {
+            .text {
               font-size: 24px;
               text-decoration: none;
               font-weight: 600;
@@ -32,19 +32,36 @@
         margin-top: -30px;
         .col-xs-6 {
           a {
-            .section {
+            display: block;
+            padding: 2px 20px;
+            padding-left: 60px;
+            border-radius: 8px;
+            background: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+            height: 50px;
+            .icon {
+              margin-top: 7px;
+              position: absolute;
+              left: 15px;
+              width: 30px;
+              img {
+                max-width: 100%;
+              }
+            }
+            .text {
               font-size: 18px;
               text-decoration: none;
               font-weight: 500;
               color: black;
               font-family: 'Open Sans', sans-serif;
-              background-color: #f5f5f5;
-              margin: 7px;
-              padding: 5px 15px;
-              border-radius: 7px;
-              &:hover {
-                background-color: #e8eaf7;
-              }
+              margin-top: 7px;
+            }
+            border-radius: 12px;
+            margin: 7px;
+            background-color: #f5f5f5;
+            &:hover {
+              background-color: #e8eaf7;
             }
           }
         }
