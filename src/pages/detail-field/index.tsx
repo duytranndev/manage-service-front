@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazyload'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { listLogo } from '../../share/common/app.constants'
@@ -25,24 +26,35 @@ const DetailField = (): JSX.Element => {
             <Link to='/home'>Trang chủ</Link>
           </li>
           <li>
-            <Link to='/dvc-cong-dan'>Dành cho {field?.name}</Link>
+            <Link to='#'>Dành cho {field?.name}</Link>
           </li>
         </ul>
         <div className='main-title'>Thông tin và dịch vụ dành cho {field?.name}</div>
+
         <div className='cong-dan-list'>
           {units.map((item, index) => {
             return (
-              <div key={item._id} className='item'>
-                <a href='' className='wrap'>
-                  <div className='head'>
-                    <span className='icon'>
-                      <img style={{ maxWidth: '100%', height: 'auto' }} src={listLogo[index]} alt='image' />
-                    </span>
-                    <span className='text'>{item.name}</span>
-                  </div>
-                  <div className='desc'>{item.description}</div>
-                </a>
-              </div>
+              <LazyLoad height={200} offset={[-100, 0]} key={item._id} scroll={true}>
+                <div className='item'>
+                  <Link to={`${field?.slug}/${item.slug}`} className='wrap'>
+                    <div className='head'>
+                      <span className='icon'>
+                        <img style={{ maxWidth: '100%', height: 'auto' }} src={listLogo[index]} />
+                      </span>
+                      <span className='text'>{item.name}</span>
+                    </div>
+                    <div className='desc'>{item.description}</div>
+                  </Link>
+                </div>
+
+                {/* <BlockUnit
+                  fieldSlug={field?.slug}
+                  unitSlug={item.slug}
+                  name={item.name}
+                  description={item.description}
+                  logo={listLogo[index]}
+                /> */}
+              </LazyLoad>
             )
           })}
         </div>

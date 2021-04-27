@@ -63,6 +63,11 @@
             &:hover {
               background-color: #e8eaf7;
             }
+            &:last-child {
+              img {
+                background-color: #e8eaf7;
+              }
+            }
           }
         }
       }

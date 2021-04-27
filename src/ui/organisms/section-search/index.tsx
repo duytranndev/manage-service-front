@@ -3,13 +3,16 @@ import Grid from '@material-ui/core/Grid'
 import 'antd/dist/antd.css'
 import Button from 'antd/lib/button'
 import Input from 'antd/lib/input/Input'
+import { createRef } from 'react'
 import './index.scss'
 
 const SearchComponent = (): JSX.Element => {
+  const myRef = createRef<HTMLDivElement>()
+
   const onSearch = (value: string) => console.log(value)
 
   return (
-    <div className='search-banner'>
+    <div ref={myRef} className='search-banner'>
       <div className='container'>
         <div className='search'>
           <div className='form-group'>
@@ -17,7 +20,7 @@ const SearchComponent = (): JSX.Element => {
               <div className='title'>Tra cứu thông tin hồ sơ</div>
               <Grid container spacing={0} className='row-search'>
                 <Grid item xs={10} className='col-xs-10'>
-                  <Input className='input-search' placeholder='Nhập mã hồ sơ tìm kiếm' size='large' />
+                  <Input autoFocus={true} className='input-search' placeholder='Nhập mã hồ sơ tìm kiếm' size='large' />
                 </Grid>
                 <Grid item xs={2} className='col-xs-2'>
                   <Button className='btn-search' size='large' icon={<SearchOutlined />}>

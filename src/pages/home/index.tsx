@@ -1,33 +1,19 @@
-import { lazy, Suspense, useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
+import LazyLoad from 'react-lazyload'
 import { useDispatch, useSelector } from 'react-redux'
 import { FieldInterface } from '../../share/interface/field.interface'
 import { UnitInterface } from '../../share/interface/unit.interface'
-import { fetchFields } from '../../store/reducers/field.reducer'
-import { fetchUnits } from '../../store/reducers/unit.reducer'
 import { AppState } from '../../store/types'
 import Banner from '../../ui/organisms/banner'
+import GroupContent from '../../ui/organisms/content-home'
 import './index.scss'
 
-const GroupContent = lazy(() => import('../../ui/organisms/content-home/index'))
+// const GroupContent = React.lazy(() => import('../../ui/organisms/content-home/index'))
 
 const HomePage = (): JSX.Element => {
   const fields = useSelector<AppState, FieldInterface[]>((state) => state.field.data)
   const units = useSelector<AppState, UnitInterface[]>((state) => state.unit.data)
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    const loadUnit = async () => {
-      await dispatch(fetchUnits())
-    }
-    loadUnit()
-  }, [])
-
-  useEffect(() => {
-    const loadField = async () => {
-      await dispatch(fetchFields())
-    }
-    loadField()
-  }, [])
 
   const convertCategoryField = (FieldArr: FieldInterface[], UnitArr: UnitInterface[]) => {
     return FieldArr.map((field) => {
@@ -45,7 +31,9 @@ const HomePage = (): JSX.Element => {
         <div className='container'></div>
       </div>
       <div className='container container-content'>
-        <Suspense fallback={<div>Loading...</div>}>{data.length > 0 && <GroupContent data={data} />}</Suspense>
+        <LazyLoad height={200} throttle={100} scroll once>
+          <GroupContent data={data} />
+        </LazyLoad>
       </div>
     </>
   )

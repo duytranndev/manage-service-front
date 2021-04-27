@@ -1,11 +1,30 @@
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import AboutPage from '../../pages/about'
 import DetailEventUnit from '../../pages/detail'
 import DetailField from '../../pages/detail-field'
+import HowToUse from '../../pages/help-use'
 import HomePage from '../../pages/home'
 import TermsCondition from '../../pages/terms-and-condition'
+import { fetchFields } from '../../store/reducers/field.reducer'
+import { fetchUnits } from '../../store/reducers/unit.reducer'
 
 export default function AppRouting() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const loadUnit = async () => {
+      await dispatch(fetchUnits())
+    }
+    loadUnit()
+  }, [])
+
+  useEffect(() => {
+    const loadField = async () => {
+      await dispatch(fetchFields())
+    }
+    loadField()
+  }, [])
   const routeList = [
     {
       component: <Route key='5' path='/dvc/cong-dan/:slug' children={<DetailEventUnit />} exact />
@@ -24,6 +43,9 @@ export default function AppRouting() {
     },
     {
       component: <Route key='2' path='/home' component={HomePage} exact />
+    },
+    {
+      component: <Route key='7' path='/how-to-use' component={HowToUse} exact />
     }
   ]
   return (
