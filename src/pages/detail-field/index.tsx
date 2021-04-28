@@ -16,8 +16,6 @@ const DetailField = (): JSX.Element => {
 
   units = units.filter((unit) => unit.fieldId === field?._id)
 
-  console.log('units :>> ', units)
-
   return (
     <>
       <div className='container cong-dan'>

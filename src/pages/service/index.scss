@@ -1,0 +1,178 @@
+.section-service {
+  .container {
+    margin-bottom: 50px;
+    max-width: 1200px;
+    width: 100%;
+    ul.breadcrumb {
+      background: none;
+      padding: 20px 0px;
+      margin-bottom: 20px;
+      list-style: none;
+      border-radius: 4px;
+      margin-top: 0;
+      li {
+        text-align: left;
+        display: inline-block;
+        &:last-child::before {
+          content: '>';
+          padding: 0 5px;
+          color: #ccc;
+        }
+        a {
+          text-align: left;
+          font-size: 16px;
+          text-decoration: none;
+          color: inherit;
+          background-color: transparent;
+        }
+        &:hover a {
+          color: #ce7a58;
+        }
+      }
+    }
+    .main-title {
+      margin: 0px;
+      font-size: 28px;
+      display: block;
+      margin-bottom: 20px;
+      color: #333333;
+      font-weight: 500;
+      line-height: 36px;
+      padding-left: 110px;
+      position: relative;
+      text-align: justify;
+
+      .icon {
+        width: 100px;
+        height: 100px;
+        background: #ce7a58;
+        border-radius: 3px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 20px;
+        img {
+          height: 60px;
+          width: 60px;
+          max-width: 100%;
+          vertical-align: middle;
+        }
+      }
+      .title {
+        background-color: rgba(255, 198, 0, 0.15);
+        padding: 30px 20px;
+        // background-image: url(../img/hac.svg);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        border-radius: 4px;
+        min-height: 100px;
+        text-align: left;
+      }
+    }
+    .marb20 {
+      margin-bottom: 20px !important;
+    }
+    .box-cat-cd {
+      margin-bottom: 40px;
+      .list-expand {
+        margin-bottom: 20px;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        .item {
+          border-top: 0px;
+          .title {
+            cursor: pointer;
+            // display: block;
+            padding: 15px 0px;
+            color: #1e2f41;
+            // font-weight: 500;
+            font-size: 20px;
+            border-bottom: 1px solid rgb(155, 152, 152);
+          }
+          &:hover .title {
+            color: rgb(218, 40, 40);
+          }
+        }
+      }
+      .divider-gray {
+        margin: 20px 0px;
+        height: 1px;
+        background: #e9f0f8;
+      }
+      .actions {
+        margin-top: 20px !important;
+        text-align: center;
+        .btn-main {
+          max-width: 300px;
+          width: 100%;
+          background: #ce7a58;
+          color: #fff;
+          border-radius: 4px;
+          min-width: 160px;
+          font-size: 18px;
+          height: 40px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block;
+          padding: 6px 12px;
+          margin-bottom: 0;
+          font-weight: 400;
+          line-height: 1.42857143;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          touch-action: manipulation;
+          cursor: pointer;
+          user-select: none;
+          border: 1px solid transparent;
+        }
+      }
+      .main-title-sub {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      ul.list-document {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        li {
+          margin-bottom: 7px;
+          a {
+            font-size: 16px;
+            display: block;
+            padding: 7px 0px;
+            padding-left: 40px;
+            position: relative;
+            text-align: justify;
+            color: inherit;
+            background-color: transparent;
+            text-decoration: none;
+            &::before {
+              background: none;
+              color: #ce7a58;
+              content: '';
+              font-size: 20px;
+              display: block;
+              width: 18px;
+              height: 19px;
+              background-size: cover;
+              position: absolute;
+              top: 12px;
+              left: 0px;
+              line-height: 18px;
+            }
+          }
+        }
+      }
+    }
+    &::before {
+      display: table;
+      content: '';
+    }
+  }
+}

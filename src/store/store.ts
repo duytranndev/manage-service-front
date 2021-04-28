@@ -1,11 +1,13 @@
 import { Action, applyMiddleware, combineReducers, createStore, Middleware } from 'redux'
 import thunk from 'redux-thunk'
 import { FieldReducer } from './reducers/field.reducer'
+import { ServiceReducer } from './reducers/service.reducer'
 import { UnitReducer } from './reducers/unit.reducer'
 
 const rootReducer = combineReducers({
   field: FieldReducer,
-  unit: UnitReducer
+  unit: UnitReducer,
+  service: ServiceReducer
 })
 
 const middleWare = [thunk]

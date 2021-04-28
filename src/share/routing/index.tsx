@@ -2,10 +2,12 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import AboutPage from '../../pages/about'
-import DetailEventUnit from '../../pages/detail'
 import DetailField from '../../pages/detail-field'
+import DetailService from '../../pages/detail-service'
 import HowToUse from '../../pages/help-use'
 import HomePage from '../../pages/home'
+import NotFound from '../../pages/NotFound'
+import DetailEventUnit from '../../pages/service'
 import TermsCondition from '../../pages/terms-and-condition'
 import { fetchFields } from '../../store/reducers/field.reducer'
 import { fetchUnits } from '../../store/reducers/unit.reducer'
@@ -25,7 +27,11 @@ export default function AppRouting() {
     }
     loadField()
   }, [])
+
   const routeList = [
+    {
+      component: <Route key='8' path='/dvc/chi-tiet-dich-vu/:slug' children={<DetailService />} exact />
+    },
     {
       component: <Route key='5' path='/dvc/cong-dan/:slug' children={<DetailEventUnit />} exact />
     },
@@ -52,6 +58,7 @@ export default function AppRouting() {
     <>
       <Switch>
         {routeList.map((item) => item.component)}
+        <Route path='*' component={NotFound} exact />
         <Redirect path='home' to='/' exact></Redirect>
       </Switch>
     </>
