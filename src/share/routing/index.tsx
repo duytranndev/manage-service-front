@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import AboutPage from '../../pages/about'
-import DetailField from '../../pages/detail-field'
-import DetailService from '../../pages/detail-service'
-import HowToUse from '../../pages/help-use'
-import HomePage from '../../pages/home'
-import NotFound from '../../pages/NotFound'
-import DetailEventUnit from '../../pages/service'
-import TermsCondition from '../../pages/terms-and-condition'
+import AboutPage from '../../pages/about/AboutPage'
+import DetailField from '../../pages/detail-field/DetailFieldPage'
+import DetailService from '../../pages/detail-service/DetailServicePage'
+import HowToUse from '../../pages/help/HelpPage'
+import HomePage from '../../pages/home/HomePage'
+import NotFound from '../../pages/NotFound/NotFoundPage'
+import DetailEventUnit from '../../pages/service/ServicePage'
+import TermsCondition from '../../pages/terms-and-condition/FaqPage'
 import { fetchFields } from '../../store/reducers/field.reducer'
 import { fetchUnits } from '../../store/reducers/unit.reducer'
 
@@ -31,6 +31,9 @@ export default function AppRouting() {
   const routeList = [
     {
       component: <Route key='8' path='/dvc/chi-tiet-dich-vu/:slug' children={<DetailService />} exact />
+    },
+    {
+      component: <Route key='9' path='/dvc/doanh-nghiep/:slug' children={<DetailEventUnit />} exact />
     },
     {
       component: <Route key='5' path='/dvc/cong-dan/:slug' children={<DetailEventUnit />} exact />

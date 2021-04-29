@@ -29,4 +29,90 @@
 }
 .App {
   overflow-x: hidden;
+  .section-menu-bottom {
+    margin-top: 60px;
+    background: #f5f5f5;
+    padding: 40px 0px;
+    .container {
+      max-width: 991px;
+      width: 100%;
+      &::before {
+        display: table;
+        content: '';
+        box-sizing: border-box;
+      }
+      font-size: 18px;
+      .pull-left {
+        float: left !important;
+        .wrap {
+          display: table;
+          width: 100%;
+          cursor: pointer;
+          text-decoration: none;
+          color: inherit;
+          .icon {
+            width: 90px;
+            img {
+              max-width: 100%;
+              height: auto;
+
+              vertical-align: middle;
+              border: 0;
+            }
+          }
+          .icon,
+          .text {
+            display: table-cell;
+            vertical-align: middle;
+          }
+          .text {
+            padding-left: 20px;
+            color: #1e2f41 !important;
+          }
+        }
+      }
+      .pull-right {
+        float: right !important;
+        .wrap {
+          display: table;
+          width: 100%;
+          cursor: pointer;
+          text-decoration: none;
+          color: inherit;
+          .icon {
+            width: 90px;
+            img {
+              max-width: 100%;
+              height: auto;
+
+              vertical-align: middle;
+              border: 0;
+            }
+          }
+          .icon,
+          .text {
+            display: table-cell;
+            vertical-align: middle;
+          }
+          .text {
+            padding-left: 20px;
+            color: #1e2f41 !important;
+          }
+        }
+      }
+
+      .clearfix {
+        &::before {
+          display: table;
+          content: ' ';
+          box-sizing: border-box;
+        }
+        &::after {
+          display: table;
+          content: ' ';
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
 }

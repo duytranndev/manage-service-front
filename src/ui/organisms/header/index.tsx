@@ -1,26 +1,27 @@
-import React, { createRef, useEffect, useRef } from 'react'
+import React, { createRef, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import './header'
 import './index.scss'
 
 export default function HeaderComponent(): JSX.Element {
   const myRef = createRef<HTMLDivElement>()
   const prevScrollY = useRef(0)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      const menu = document.querySelector('.menu') as HTMLDivElement
-      if (prevScrollY.current > 100) {
-        menu.classList.add('fixed')
-      }
-      if (prevScrollY.current < 100) {
-        menu.classList.remove('fixed')
-      }
-      prevScrollY.current = currentScrollY
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY
+  //     const menu = document.querySelector('.menu') as HTMLDivElement
+  //     if (prevScrollY.current > 100) {
+  //       menu.classList.add('fixed')
+  //     }
+  //     if (prevScrollY.current < 100) {
+  //       menu.classList.remove('fixed')
+  //     }
+  //     prevScrollY.current = currentScrollY
+  //   }
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
 
   return (
     <div ref={myRef} className='menu'>
@@ -36,22 +37,34 @@ export default function HeaderComponent(): JSX.Element {
         </div>
         <ul>
           <li>
-            <NavLink to='/home'>HOME</NavLink>
+            <NavLink to='/home' activeClassName='active'>
+              HOME
+            </NavLink>
           </li>
           <li>
-            <NavLink to='/about'>GIỚI THIỆU</NavLink>
+            <NavLink to='/about' activeClassName='active'>
+              GIỚI THIỆU
+            </NavLink>
           </li>
           <li>
-            <NavLink to='/faq'>ĐIỀU KHOẢN SỬ DỤNG</NavLink>
+            <NavLink to='/faq' activeClassName='active'>
+              ĐIỀU KHOẢN SỬ DỤNG
+            </NavLink>
           </li>
           <li>
-            <a href='/news'>TIN TỨC</a>
+            <NavLink to='/news' activeClassName='active'>
+              TIN TỨC
+            </NavLink>
           </li>
           <li>
-            <a href='/how-to-use'>HƯỚNG DẪN SỬ DỤNG</a>
+            <NavLink to='/how-to-use' activeClassName='active'>
+              HƯỚNG DẪN SỬ DỤNG
+            </NavLink>
           </li>
           <li>
-            <a href='/contact'>Liên hệ</a>
+            <NavLink to='/contact' activeClassName='active'>
+              Liên hệ
+            </NavLink>
           </li>
         </ul>
         <button className='nutlogin'>DANG NHAP</button>

@@ -68,14 +68,11 @@
       background-position: center;
       width: 100%;
       text-align: center;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.391), rgba(0, 0, 0, 0.391)),
-        url(https://dichvucong.gov.vn/p/home/theme/img/home/banner.jpg);
+      background-image: url(https://dichvucong.gov.vn/p/home/theme/img/bg-news.jpg);
       background-size: cover;
       background-position: center;
-      background-position-y: -260px;
       transition: 0.5s;
       z-index: 1;
-      color: #fff;
       .navbar {
         width: 85%;
         margin: auto;
@@ -105,12 +102,27 @@
       }
       .navbar ul li a {
         text-decoration: none;
-        color: #fff;
+        // color: #fff;
         font-size: 18px;
+
         font-weight: 500;
         font-family: 'Courier New', Courier, monospace;
         text-transform: uppercase;
+        color: black;
       }
+
+      .navbar ul li a.active::after {
+        width: 100%;
+        content: '';
+        height: 3px;
+        width: 100%;
+        background: #f6b93b;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+      }
+
       .navbar ul li::after {
         content: '';
         height: 3px;
@@ -139,9 +151,8 @@
         color: black;
       }
     }
-    .fixed {
+    .menu.fixed {
       position: fixed;
-      transition: 0.5s;
     }
   }
 }

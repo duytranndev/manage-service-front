@@ -1,35 +1,12 @@
 import { Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import { Logos } from '../../../share/common/app.constants'
 import { FieldInterface } from '../../../share/interface/field.interface'
+import Image from '../../atom/image'
 
 type GroupContentProps = {
   data: FieldInterface[]
 }
-
-const listLogo = [
-  '/images/khaisinh.svg',
-  '/images/dihoc.svg',
-  '/images/vieclam.svg',
-  '/images/cutru.svg',
-  '/images/honnhangiadinh.svg',
-  '/images/nhao.svg',
-  '/images/chamsoc-sk.svg',
-  '/images/laixe.svg',
-  '/images/huutri.svg',
-  '/images/khaitu.svg',
-  '/images/balance.svg',
-  '/images/khoi-su-kd.svg',
-  '/images/ldbhxh.svg',
-  '/images/tcdn.svg',
-  '/images/datdaixaydung.svg',
-  '/images/qc.svg',
-  '/images/sohuutritue.svg',
-  '/images/tlcn.svg',
-  '/images/dauthau.svg',
-  '/images/tccdn.svg',
-  '/images/balance.svg',
-  '/images/tamdung.svg'
-]
 
 const GroupContent = ({ data }: GroupContentProps): JSX.Element => {
   return (
@@ -56,7 +33,7 @@ const GroupContent = ({ data }: GroupContentProps): JSX.Element => {
                 return (
                   <Link key={unit._id} to={`/dvc/${field.slug}/${unit.slug}`}>
                     <span className='icon'>
-                      <img src={listLogo[index]} alt='' />
+                      <Image src={Logos.find((item) => item.id === unit.slug)?.path} alt='' />
                     </span>
                     <p className='text'>{unit.name}</p>
                   </Link>

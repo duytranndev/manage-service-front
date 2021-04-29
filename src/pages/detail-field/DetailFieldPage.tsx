@@ -1,10 +1,11 @@
 import LazyLoad from 'react-lazyload'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { listLogo } from '../../share/common/app.constants'
+import { Logos } from '../../share/common/app.constants'
 import { FieldInterface } from '../../share/interface/field.interface'
 import { UnitInterface } from '../../share/interface/unit.interface'
 import { AppState } from '../../store/types'
+import Image from '../../ui/atom/image'
 import './index.scss'
 
 const DetailField = (): JSX.Element => {
@@ -37,7 +38,10 @@ const DetailField = (): JSX.Element => {
                   <Link to={`${field?.slug}/${item.slug}`} className='wrap'>
                     <div className='head'>
                       <span className='icon'>
-                        <img style={{ maxWidth: '100%', height: 'auto' }} src={listLogo[index]} />
+                        <Image
+                          style={{ maxWidth: '100%', height: 'auto' }}
+                          src={Logos.find((x) => x.id === item.slug)?.path}
+                        />
                       </span>
                       <span className='text'>{item.name}</span>
                     </div>
@@ -62,7 +66,7 @@ const DetailField = (): JSX.Element => {
           <div className='pull-left'>
             <Link to='' className='wrap'>
               <div className='icon'>
-                <img src='/images/trongdong.png' alt='' />
+                <Image src='/images/trongdong.png' alt='' />
               </div>
               <div className='text'>Câu hỏi thường gặp</div>
             </Link>
@@ -70,7 +74,7 @@ const DetailField = (): JSX.Element => {
           <div className='pull-right'>
             <Link to='' className='wrap'>
               <div className='icon'>
-                <img src='/images/trongdong.png' alt='' />
+                <Image src='/images/trongdong.png' alt='' />
               </div>
               <div className='text'>Hướng dẫn sử dụng</div>
             </Link>

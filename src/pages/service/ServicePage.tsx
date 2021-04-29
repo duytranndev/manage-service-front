@@ -2,10 +2,12 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { Logos } from '../../share/common/app.constants'
 import { ServiceInterface } from '../../share/interface/service.interface'
 import { UnitInterface } from '../../share/interface/unit.interface'
 import { fetchServices } from '../../store/reducers/service.reducer'
 import { AppState } from '../../store/types'
+import Image from '../../ui/atom/image'
 import './index.scss'
 
 const Service = (): JSX.Element => {
@@ -39,9 +41,9 @@ const Service = (): JSX.Element => {
         </ul>
         <div className='main-title'>
           <div className='icon'>
-            <img src='theme/img/congdan/icons-white/cutru.svg' alt='' />
+            <Image src={Logos.find((item) => item.id === slug)?.path} alt='' />
           </div>
-          <div className='title'>Cư trú và giấy tờ tùy thân</div>
+          <div className='title'>{unit?.name}</div>
         </div>
         <div className='marb20'>
           Cung cấp thông tin thủ tục hành chính, dịch vụ công trực tuyến liên quan đến thường trú, tạm trú và cấp một số
