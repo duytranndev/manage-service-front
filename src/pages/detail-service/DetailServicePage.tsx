@@ -2,7 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Image from '../../ui/atom/image'
+import CapGiayChuyenHoKhau from '../../ui/organisms/services/capgiaychuyenhokhau'
+import CapLaiSoHoKhau from '../../ui/organisms/services/caplaiso'
 import DangKyThuongTru from '../../ui/organisms/services/dangkythuongtru'
+import DieuChinhThayDoi from '../../ui/organisms/services/dieuchinhthaydoi'
+import TachSoHoKhau from '../../ui/organisms/services/tacksohokhau'
 import './index.scss'
 
 const DetailService = (): JSX.Element => {
@@ -12,6 +16,14 @@ const DetailService = (): JSX.Element => {
     switch (slug) {
       case 'dang-ky-thuong-tru':
         return <DangKyThuongTru />
+      case 'tach-so-ho-khau':
+        return <TachSoHoKhau />
+      case 'cap-giay-chuyen-ho-khau':
+        return <CapGiayChuyenHoKhau />
+      case 'dieu-chinh-nhung-thay-doi-trong-so-ho-khau':
+        return <DieuChinhThayDoi />
+      case 'cap-lai-so-ho-khau':
+        return <CapLaiSoHoKhau />
       default:
         break
     }

@@ -2,7 +2,7 @@ import { Button, createStyles, Grid, makeStyles, TextField, Theme } from '@mater
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
-import { DatePicker, Form, Radio } from 'antd'
+import { Form, Radio } from 'antd'
 import ButtonGroup from 'antd/lib/button/button-group'
 import { ChangeEvent, default as React, useState } from 'react'
 
@@ -60,14 +60,6 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
     }
   ])
 
-  const continueStep = () => {
-    onNextStep(formData)
-    nextStep()
-  }
-  function handleDateChange(date: any, dateString: string) {
-    console.log(date, dateString)
-  }
-
   const handelOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -99,6 +91,11 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
     setInputFields(values)
   }
 
+  const continueStep = () => {
+    onNextStep(formData)
+    nextStep()
+  }
+
   return (
     <Form layout='horizontal' wrapperCol={{ span: 20 }} hideRequiredMark>
       <div className={classes.root}>
@@ -128,11 +125,19 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
           </Grid>
 
           <Grid item xs={4}>
-            <DatePicker
-              size='large'
-              placeholder='Ngày tháng năm sinh'
-              style={{ width: '100%' }}
-              onChange={handleDateChange}
+            <TextField
+              id='standard-full-width'
+              label='Ngày, tháng, năm sinh'
+              style={{ margin: 8 }}
+              placeholder='Ngày, tháng, năm sinh'
+              onChange={handelOnChange}
+              name='dayOfBirth'
+              type='date'
+              fullWidth
+              margin='normal'
+              InputLabelProps={{
+                shrink: true
+              }}
             />
           </Grid>
 
@@ -143,6 +148,7 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
               style={{ margin: 8 }}
               onChange={handelOnChange}
               placeholder='Nơi sinh'
+              name='birthplace'
               fullWidth
               margin='normal'
               InputLabelProps={{
@@ -157,6 +163,7 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
               label='Nguyên quán'
               style={{ margin: 8 }}
               onChange={handelOnChange}
+              name='homeTown'
               placeholder='Nguyên quán'
               fullWidth
               margin='normal'
@@ -174,6 +181,7 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
               onChange={handelOnChange}
               placeholder='Dân tộc'
               fullWidth
+              name='nation'
               margin='normal'
               InputLabelProps={{
                 shrink: true
@@ -187,6 +195,8 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
               label='Tôn giáo'
               style={{ margin: 8 }}
               onChange={handelOnChange}
+              name='religion'
+              //religion - tôn giáo
               placeholder='Tôn giáo'
               fullWidth
               margin='normal'
@@ -200,6 +210,8 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
             <TextField
               id='standard-full-width'
               label='Quốc tịch'
+              name='nationality'
+              //nationality quốc tịch
               style={{ margin: 8 }}
               placeholder='Quốc tịch'
               onChange={handelOnChange}
@@ -217,6 +229,7 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
               label='Nơi thường trú'
               style={{ margin: 8 }}
               onChange={handelOnChange}
+              name='address'
               placeholder='Nơi thường trú'
               fullWidth
               margin='normal'
@@ -289,7 +302,7 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
         {inputFields.map((item: any, index: number) => {
           return (
             <Grid key={index} container spacing={0} style={{ display: 'flex' }}>
-              <Grid item xs={2}>
+              <Grid item xs={1}>
                 <TextField
                   id='standard-secondary'
                   label='Họ và tên'
@@ -302,24 +315,21 @@ export default function TransferPaper({ onNextStep, nextStep }: StepFormProps) {
                   }}
                 />
               </Grid>
-              <Grid item xs={1}>
-                {/* <TextField
-                id='standard-secondary'
-                label='Ngày tháng năm sinh'
-                size='small'
-                color='secondary'
-                type='date'
-                fullWidth
-                InputLabelProps={{
-                  shrink: true
-                }}
-              /> */}
-                <DatePicker
-                  placeholder='Ngày tháng năm sinh'
-                  size='middle'
-                  name='duypro'
-                  style={{ width: '100%' }}
-                  onChange={handleDateChange}
+              <Grid item xs={2}>
+                <TextField
+                  id='standard-secondary'
+                  label='Ngày, tháng, năm sinh'
+                  style={{ margin: 0 }}
+                  placeholder='Ngày, tháng, năm sinh'
+                  onChange={handelOnChange}
+                  name='dayOfBirth'
+                  size='small'
+                  type='date'
+                  fullWidth
+                  // margin='normal'
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
               </Grid>
               <Grid item xs={1}>

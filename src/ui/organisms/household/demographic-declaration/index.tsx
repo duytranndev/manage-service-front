@@ -35,9 +35,10 @@ const useStyles = makeStyles((theme: Theme) =>
 type StepFormProps = {
   onNextStep: Function
   nextStep: Function
+  prevStep: Function
 }
 
-export default function DemographicDeclaration({ onNextStep, nextStep }: StepFormProps) {
+export default function DemographicDeclaration({ onNextStep, nextStep, prevStep }: StepFormProps) {
   const classes = useStyles()
   const [value, setValue] = useState('')
   const [formData, setFormData] = useState()
@@ -96,6 +97,10 @@ export default function DemographicDeclaration({ onNextStep, nextStep }: StepFor
 
   const continueStep = () => {
     nextStep()
+  }
+
+  const comeBackStep = () => {
+    prevStep()
   }
 
   const handleOnSubmit = (e: any) => {
@@ -371,6 +376,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep }: StepFor
               id='standard-secondary'
               label='Chỗ ở (Ghi rõ số nhà, đường; thôn, xóm, làng, ấp, bản,...; xã/phường/thị trấn; quận/huyện; tỉnh/thành phố. Nếu ở nước ngoài thì ghi rõ tên nước)'
               color='secondary'
+              size='small'
               fullWidth
               InputLabelProps={{
                 shrink: true
@@ -405,7 +411,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep }: StepFor
           NEXT
         </Button>
         <Button
-          onClick={continueStep}
+          onClick={comeBackStep}
           variant='contained'
           fullWidth
           className={classes.button}

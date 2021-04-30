@@ -6,6 +6,7 @@ import DetailField from '../../pages/detail-field/DetailFieldPage'
 import DetailService from '../../pages/detail-service/DetailServicePage'
 import HowToUse from '../../pages/help/HelpPage'
 import HomePage from '../../pages/home/HomePage'
+import NewsPage from '../../pages/news/NewsPage'
 import NotFound from '../../pages/NotFound/NotFoundPage'
 import DetailEventUnit from '../../pages/service/ServicePage'
 import TermsCondition from '../../pages/terms-and-condition/FaqPage'
@@ -55,6 +56,9 @@ export default function AppRouting() {
     },
     {
       component: <Route key='7' path='/how-to-use' component={HowToUse} exact />
+    },
+    {
+      component: <Route key='10' path='/news' component={NewsPage} exact />
     }
   ]
   return (

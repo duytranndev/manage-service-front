@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 type StepFormProps = {
   onNextStep: Function
   nextStep: Function
+  prevStep: Function
 }
 
 type PeopleProps = {
@@ -43,7 +44,7 @@ type PeopleProps = {
   relative?: string
 }
 
-export default function ChangementPaper({ onNextStep, nextStep }: StepFormProps) {
+export default function ChangementPaper({ onNextStep, nextStep, prevStep }: StepFormProps) {
   const classes = useStyles()
   const [value, setValue] = useState('')
   const [formData, setFormData] = useState({})
@@ -99,6 +100,10 @@ export default function ChangementPaper({ onNextStep, nextStep }: StepFormProps)
 
   const continueStep = () => {
     nextStep()
+  }
+
+  const comeBackStep = () => {
+    prevStep()
   }
 
   return (
@@ -232,6 +237,8 @@ export default function ChangementPaper({ onNextStep, nextStep }: StepFormProps)
               label='Ngày, tháng, năm sinh'
               style={{ margin: 8 }}
               placeholder='Ngày, tháng, năm sinh'
+              onChange={handelOnChange}
+              name='dayOfBirth'
               type='date'
               fullWidth
               margin='normal'
@@ -573,7 +580,7 @@ export default function ChangementPaper({ onNextStep, nextStep }: StepFormProps)
           NEXT
         </Button>
         <Button
-          onClick={continueStep}
+          onClick={comeBackStep}
           variant='contained'
           fullWidth
           className={classes.button}
