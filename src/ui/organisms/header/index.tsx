@@ -1,4 +1,4 @@
-import React, { createRef, useRef } from 'react'
+import React, { createRef, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './header'
 import './index.scss'
@@ -7,21 +7,21 @@ export default function HeaderComponent(): JSX.Element {
   const myRef = createRef<HTMLDivElement>()
   const prevScrollY = useRef(0)
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY
-  //     const menu = document.querySelector('.menu') as HTMLDivElement
-  //     if (prevScrollY.current > 100) {
-  //       menu.classList.add('fixed')
-  //     }
-  //     if (prevScrollY.current < 100) {
-  //       menu.classList.remove('fixed')
-  //     }
-  //     prevScrollY.current = currentScrollY
-  //   }
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => window.removeEventListener('scroll', handleScroll)
-  // }, [])
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const menu = document.querySelector('.menu') as HTMLDivElement
+      if (prevScrollY.current > 100) {
+        menu.classList.add('fixed')
+      }
+      if (prevScrollY.current < 100) {
+        menu.classList.remove('fixed')
+      }
+      prevScrollY.current = currentScrollY
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div ref={myRef} className='menu'>

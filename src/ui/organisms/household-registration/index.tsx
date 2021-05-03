@@ -63,10 +63,16 @@ const HouseholdRegistration = (): JSX.Element => {
     step === 3 && setIsModalVisible(true)
   }, [step])
 
+  const values = {
+    document: formValues
+  }
+
   const Steps = (visible: number) => {
     switch (visible) {
       case 1:
-        return <TransferPaper nextStep={nextStep} onNextStep={handleFirstFormChange} />
+        return (
+          <TransferPaper parentValues={formValues.firstForm} nextStep={nextStep} onNextStep={handleFirstFormChange} />
+        )
       case 2:
         return <ChangementPaper prevStep={prevStep} nextStep={nextStep} onNextStep={handleSecondFormChange} />
       case 3:

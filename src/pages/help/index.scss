@@ -1,0 +1,160 @@
+.section-hotro {
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    ul.breadcrumb {
+      background: none;
+      padding: 20px 0px;
+      margin-bottom: 20px;
+      list-style: none;
+      border-radius: 4px;
+      margin-top: 0;
+      li {
+        text-align: left;
+        display: inline-block;
+        &:last-child::before {
+          content: '>';
+          padding: 0 5px;
+          color: #ccc;
+        }
+        a {
+          text-align: left;
+          font-size: 16px;
+          text-decoration: none;
+          color: inherit;
+          background-color: transparent;
+        }
+        &:hover a {
+          color: #ce7a58;
+        }
+      }
+    }
+    .cau-hoi-pho-bien {
+      .row {
+        margin-right: -15px;
+        margin-left: -15px;
+        .content {
+          width: 100%;
+          .main-title {
+            display: table;
+            width: 100%;
+            padding: 0px;
+            font-size: 24px;
+            line-height: 32px;
+            text-align: center;
+            margin: 0px;
+            margin-bottom: 20px;
+            color: #333333;
+            font-weight: 500;
+            position: relative;
+          }
+          .help-steps {
+            border-bottom: 0px;
+            text-align: center;
+            .item {
+              position: relative;
+              width: 25%;
+              float: left;
+              padding: 10px;
+              .number {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                font-size: 26px;
+                position: relative;
+                background: #7c964c;
+                color: #fff;
+                text-align: center;
+                line-height: 80px;
+                margin: auto;
+                margin-bottom: 20px;
+              }
+              .text {
+                height: 90px;
+                overflow: hidden;
+              }
+            }
+          }
+          .divider-gray {
+            margin: 20px 0px;
+            height: 1px;
+            background: #e9f0f8;
+          }
+          .help-article {
+            line-height: 27px;
+            .help-steps-content {
+              margin-bottom: 10px;
+              .step-item {
+                margin-bottom: 30px;
+                .row {
+                  .help-description {
+                    margin-bottom: 10px;
+                    .head {
+                      display: table;
+                      width: 100%;
+                      font-size: 20px;
+                      font-weight: 500;
+                      margin-bottom: 20px;
+                      line-height: 28px;
+                      .head-number {
+                        width: 60px;
+                        display: table-cell;
+                        vertical-align: middle;
+                        .number {
+                          width: 60px;
+                          height: 60px;
+                          line-height: 60px;
+                          font-size: 26px;
+                          font-weight: 500;
+                          color: #fff;
+                          display: block;
+                          border-radius: 50%;
+                          background: #7c964c;
+                          text-align: center;
+                        }
+                      }
+                      .text {
+                        padding-left: 10px;
+                        display: table-cell;
+                        vertical-align: middle;
+                      }
+                    }
+                    .description {
+                      margin-bottom: 10px;
+                      p {
+                        margin-bottom: 10px;
+                        margin: 0 0 10px;
+                      }
+                    }
+                  }
+                  .help-img {
+                    margin-bottom: 10px;
+                    video {
+                      max-width: 100%;
+                      display: inline-block;
+                      vertical-align: baseline;
+                    }
+                  }
+                  &::after {
+                    display: block;
+                    content: ' ';
+                    clear: both;
+                  }
+                  &::before {
+                    display: table;
+                    content: ' ';
+                    box-sizing: border-box;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

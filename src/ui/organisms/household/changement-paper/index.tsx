@@ -61,15 +61,6 @@ export default function ChangementPaper({ onNextStep, nextStep, prevStep }: Step
     }
   ])
 
-  const onChangeGender = (e: any) => {
-    console.log('radio checked', e.target.value)
-    setValue(e.target.value)
-  }
-  function onChange({ value, dateString }: any) {
-    console.log('Selected Time: ', value)
-    console.log('Formatted Selected Time: ', dateString)
-  }
-
   const handleChangeFieldInput = (index: number, e: ChangeEvent<HTMLInputElement>) => {
     const values = [...inputFields]
     values[index][e.target.name] = e.target.value
@@ -125,7 +116,7 @@ export default function ChangementPaper({ onNextStep, nextStep, prevStep }: Step
             />
           </Grid>
           <Grid item xs={3}>
-            <Radio.Group className={classes.paper} onChange={onChangeGender} value={value}>
+            <Radio.Group name='gender' className={classes.paper} onChange={(e: any) => handelOnChange(e)} value={value}>
               <Radio value='Nam'>Nam</Radio>
               <Radio value='Nữ'>Nữ</Radio>
               <Radio value='Khác'>Khác</Radio>
@@ -206,6 +197,9 @@ export default function ChangementPaper({ onNextStep, nextStep, prevStep }: Step
           </Grid>
         </Grid>
       </div>
+      <header style={{ margin: '10px 5px 10px', fontSize: '150%', fontWeight: 500 }}>
+        Thông tin về người có thay đổi hộ khẩu, nhân khẩu
+      </header>
       <div className={classes.root}>
         <Grid container spacing={4}>
           <Grid item xs={9}>
@@ -224,7 +218,7 @@ export default function ChangementPaper({ onNextStep, nextStep, prevStep }: Step
           </Grid>
 
           <Grid item xs={3}>
-            <Radio.Group className={classes.paper} onChange={onChangeGender} value={value}>
+            <Radio.Group className={classes.paper} onChange={(e: any) => handelOnChange(e)} value={value}>
               <Radio value='Nam'>Nam</Radio>
               <Radio value='Nữ'>Nữ</Radio>
               <Radio value='Khác'>Khác</Radio>
@@ -444,6 +438,7 @@ export default function ChangementPaper({ onNextStep, nextStep, prevStep }: Step
           </Grid>
         </Grid>
       </div>
+      <header style={{ margin: '10px 5px 10px', fontSize: '150%', fontWeight: 500 }}>Những người cùng thay đổi:</header>
       <div className={classes.root} style={{ marginLeft: 6 }}>
         {inputFields.map((item: any, index: number) => {
           return (

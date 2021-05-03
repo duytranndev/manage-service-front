@@ -1,31 +1,6 @@
+@import '../../App.scss';
+
 .section-faq {
-  .breadcrumb {
-    background: none;
-    padding: 20px 0px;
-    margin-bottom: 20px;
-    list-style: none;
-    border-radius: 4px;
-    margin-top: 0;
-    li {
-      text-align: left;
-      display: inline-block;
-      &:last-child::before {
-        content: '>';
-        padding: 0 5px;
-        color: #ccc;
-      }
-      a {
-        text-align: left;
-        font-size: 16px;
-        text-decoration: none;
-        color: inherit;
-        background-color: transparent;
-      }
-      &:hover a {
-        color: #ce7a58;
-      }
-    }
-  }
   .main-title {
     padding-left: 0px;
     height: auto;

@@ -346,17 +346,27 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep 
               }}
             />
           </Grid>
+          <header style={{ margin: '10px 15px 10px', fontSize: '150%', fontWeight: 500 }}>
+            Tiền án (Tội danh, hình phạt, theo bản án số, ngày, tháng, năm của Tòa án):
+          </header>
           <Grid item xs={12}>
             <TextArea
               placeholder='Tiền án (Tội danh, hình phạt, theo bản án số, ngày, tháng, năm của Tòa án)'
               rows={4}
             />
           </Grid>
+          <header style={{ margin: '10px 15px 10px', fontSize: '150%', fontWeight: 500 }}>
+            Tóm tắt về gia đình (Bố, mẹ; vợ/chồng; con; anh, chị, em ruột):
+          </header>
           <Grid item xs={12}>
             <TextArea placeholder='Tóm tắt về gia đình (Bố, mẹ; vợ/chồng; con; anh, chị, em ruột)' rows={4} />
           </Grid>
         </Grid>
       </div>
+      <header style={{ margin: '10px 5px 10px', fontSize: '150%', fontWeight: 500 }}>
+        Tóm tắt về bản thân (Từ đủ 14 tuổi trở lên đến nay ở đâu, làm gì):
+      </header>
+
       <div className={classes.root} style={{ marginLeft: 6 }}>
         <Grid container spacing={0} style={{ display: 'flex' }}>
           <Grid item xs={2}>
