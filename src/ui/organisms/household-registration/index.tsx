@@ -2,6 +2,8 @@ import { Steps } from 'antd'
 import Modal from 'antd/lib/modal/Modal'
 import React, { useEffect, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
+import { PROFILE_URL } from '../../../share/common/api.constants'
+import { moduleApi } from '../../../share/handle/api.module'
 import ChangementPaper from '../household/changement-paper'
 import DemographicDeclaration from '../household/demographic-declaration'
 import TransferPaper from '../household/transfer-paper'
@@ -67,9 +69,8 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
         demographicDeclaration: formValues.thirdForm
       }
     }
-    // toast.promise(,{
-
-    // })
+    const addProfile = moduleApi.create(PROFILE_URL, document).then((res) => res.data.message)
+    // toast.promise(addProfile, {})
     console.log('document :>> ', document)
     // setStep(1)
     // setIsModalVisible(false)
