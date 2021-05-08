@@ -1,8 +1,8 @@
 import { PlusOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import Modal from 'antd/lib/modal/Modal'
 import { useState } from 'react'
-import HouseholdRegistration from '../../household-registration'
+import DrawerComponent from '../../../molecules/Drawer'
+import TachHoKhau from '../../tach-so-ho-khau/index'
 import Content from '../content'
 
 const TachSoHoKhau = (): JSX.Element => {
@@ -37,20 +37,13 @@ const TachSoHoKhau = (): JSX.Element => {
         </a> */}
         </div>
         <div className='pull-right'>
-          <Button type='primary' size='middle' className='btn-main' onClick={showModal}>
+          <Button type='primary' size='middle' className='btn-main' onClick={showDrawer}>
             <PlusOutlined /> Đăng ký xử lý dịch vụ trực tuyến
           </Button>
-          <Modal
-            width={1280}
-            title='Đăng ký thường trú'
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}>
-            <HouseholdRegistration />
-          </Modal>
-          {/* <DrawerComponent title='Đăng ký thường trú' onClose={onClose} visible={visible} width={1120}>
-          <HouseholdRegistration />
-        </DrawerComponent> */}
+
+          <DrawerComponent title='Tách sổ hộ khẩu' onClose={onClose} visible={visible} width={1080}>
+            <TachHoKhau nameDocument='Tách sổ hộ khẩu' />
+          </DrawerComponent>
         </div>
         <div className='clearfix'></div>
       </div>
@@ -127,7 +120,7 @@ const TachSoHoKhau = (): JSX.Element => {
                     </a>
                   </td>
                   <td style={{ whiteSpace: 'nowrap' }} data-title='Số lượng'>
-                    Bản chính: 0 - Bản sao: 0
+                    Bản chính: 1 - Bản sao: 0
                   </td>
                 </tr>
               </tbody>

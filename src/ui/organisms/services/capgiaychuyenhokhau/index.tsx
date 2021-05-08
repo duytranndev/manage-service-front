@@ -1,24 +1,11 @@
 import { PlusOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import Modal from 'antd/lib/modal/Modal'
 import { useState } from 'react'
+import DrawerComponent from '../../../molecules/Drawer'
 import HouseholdRegistration from '../../household-registration'
 import Content from '../content'
 
 const CapGiayChuyenHoKhau = (): JSX.Element => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
-
-  const showModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleOk = () => {
-    setIsModalVisible(false)
-  }
-
-  const handleCancel = () => {
-    setIsModalVisible(false)
-  }
   const [visible, setVisible] = useState<boolean>(false)
   const showDrawer = () => {
     setVisible(true)
@@ -37,20 +24,13 @@ const CapGiayChuyenHoKhau = (): JSX.Element => {
         </a> */}
         </div>
         <div className='pull-right'>
-          <Button type='primary' size='middle' className='btn-main' onClick={showModal}>
+          <Button type='primary' size='middle' className='btn-main' onClick={showDrawer}>
             <PlusOutlined /> Đăng ký xử lý dịch vụ trực tuyến
           </Button>
-          <Modal
-            width={1280}
-            title='Đăng ký thường trú'
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}>
+
+          <DrawerComponent title='Đăng ký thường trú' onClose={onClose} visible={visible} width={1080}>
             <HouseholdRegistration />
-          </Modal>
-          {/* <DrawerComponent title='Đăng ký thường trú' onClose={onClose} visible={visible} width={1120}>
-          <HouseholdRegistration />
-        </DrawerComponent> */}
+          </DrawerComponent>
         </div>
         <div className='clearfix'></div>
       </div>

@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 import ChangementPaper from '../household/changement-paper'
 import DemographicDeclaration from '../household/demographic-declaration'
-import TransferPaper from '../household/transfer-paper'
+import SoHoKhau from '../household/so-ho-khau'
 import './index.scss'
 const { Step } = Steps
 
-const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
+const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
   const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
@@ -56,15 +56,15 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
 
   const handleOnConfirm = () => {
     const document = {
-      name: formValues.secondForm?.name,
-      address: formValues.secondForm?.address,
-      phone: formValues.secondForm?.phone,
+      name: formValues.firstForm?.name,
+      address: formValues.firstForm?.address,
+      phone: formValues.firstForm?.phone,
       nameField: 'Dân sự',
       nameDocument: nameDocument,
-      profiles: {
-        transferPaper: formValues.firstForm,
-        changementPaper: formValues.secondForm,
-        demographicDeclaration: formValues.thirdForm
+      profile: {
+        document1: formValues.firstForm,
+        document2: formValues.secondForm,
+        document3: formValues.thirdForm
       }
     }
     // toast.promise(,{
@@ -87,9 +87,7 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
   const Steps = (visible: number) => {
     switch (visible) {
       case 1:
-        return (
-          <TransferPaper parentValues={formValues.firstForm} nextStep={nextStep} onNextStep={handleFirstFormChange} />
-        )
+        return <SoHoKhau parentValues={formValues.firstForm} nextStep={nextStep} onNextStep={handleFirstFormChange} />
       case 2:
         return (
           <ChangementPaper
@@ -132,4 +130,4 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
   )
 }
 
-export default HouseholdRegistration
+export default TachHoKhau

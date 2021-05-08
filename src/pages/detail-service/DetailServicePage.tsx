@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Image from '../../ui/atom/image'
@@ -56,7 +55,7 @@ const DetailService = (): JSX.Element => {
             </Link>
           </div>
           <div className='pull-right'>
-            <Link to='' className='wrap'>
+            <Link to='/how-to-use' className='wrap'>
               <div className='icon'>
                 <Image src='/images/trongdong.png' alt='' />
               </div>
