@@ -49,6 +49,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
       dayOfBirth: '',
       gender: '',
       domicile: '',
+      occupations: '',
       nation: '',
       nationality: '',
       cardId: '',
@@ -492,6 +493,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     size='small'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     color='secondary'
+                    name='name'
                     fullWidth
                     InputLabelProps={{
                       shrink: true
@@ -506,6 +508,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     size='small'
                     type='date'
                     color='secondary'
+                    name='dayOfBirth'
                     fullWidth
                     InputLabelProps={{
                       shrink: true
@@ -520,6 +523,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     size='small'
                     color='secondary'
                     fullWidth
+                    name='gender'
                     InputLabelProps={{
                       shrink: true
                     }}
@@ -531,6 +535,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     label='Nơi sinh'
                     size='small'
                     color='secondary'
+                    name='domicile'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     fullWidth
                     InputLabelProps={{
@@ -545,6 +550,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     size='small'
                     color='secondary'
+                    name='occupations'
                     fullWidth
                     InputLabelProps={{
                       shrink: true
@@ -556,6 +562,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     id='standard-secondary'
                     label='Dân tộc'
                     size='small'
+                    name='nation'
                     color='secondary'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     fullWidth
@@ -569,6 +576,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     id='standard-secondary'
                     label='Quốc tịch'
                     size='small'
+                    name='nationality'
                     color='secondary'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     fullWidth
@@ -581,6 +589,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                   <TextField
                     id='standard-secondary'
                     label='CMND số (Hộ chiếu số)'
+                    name='cardId'
                     size='small'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     color='secondary'
@@ -595,6 +604,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                     id='standard-secondary'
                     label='Quan hệ'
                     size='small'
+                    name='relative'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     color='secondary'
                     fullWidth

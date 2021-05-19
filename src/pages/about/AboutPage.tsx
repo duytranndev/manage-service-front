@@ -31,12 +31,6 @@ const AboutPage = (): JSX.Element => {
           <div className='list-intro-info'>
             <div className='item'>
               <div className='icon'>
-                <img src='/images/login.svg' alt='' />
-              </div>
-              <p>Đăng ký và được cấp ngay một tài khoản của Cổng dịch vụ công Quốc gia để đăng nhập; </p>
-            </div>
-            <div className='item'>
-              <div className='icon'>
                 <img src='/images/timkiem.svg' alt='' />
                 <p>
                   Tra cứu thông tin, dịch vụ công các ngành, lĩnh vực, các địa phương tại Cơ sở dữ liệu quốc gia về thủ
@@ -65,16 +59,7 @@ const AboutPage = (): JSX.Element => {
                 Cổng Dịch vụ công của Bộ, ngành, địa phương;
               </p>
             </div>
-            <div className='item'>
-              <div className='icon'>
-                <img src='/images/chiase.svg' alt='' />
-              </div>
-              <p>
-                Đăng nhập bằng tài khoản Cổng dịch vụ công Quốc gia để đăng nhập các Cổng Dịch vụ công của Bộ, ngành,
-                địa phương; không phải cập nhật các trường thông tin, tài liệu đã được lưu trữ trong tài khoản Cổng Dịch
-                vụ công Quốc gia;
-              </p>
-            </div>
+
             <div className='item'>
               <div className='icon'>
                 <img src='/images/truyvan.svg' alt='' />

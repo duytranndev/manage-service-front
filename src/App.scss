@@ -28,7 +28,7 @@
   width: 100%;
 }
 .App {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   .section-menu-bottom {
     margin-top: 60px;
     background: #f5f5f5;

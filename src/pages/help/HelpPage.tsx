@@ -25,10 +25,10 @@ const HowToUse = (): JSX.Element => {
                   <div className='number'>01</div>
                   <div className='text'>Tra cứu thủ tục hành chính, dịch vụ công</div>
                 </div>
-                <div className='item'>
+                {/* <div className='item'>
                   <div className='number'>02</div>
                   <div className='text'>Chọn cơ quan thực hiện</div>
-                </div>
+                </div> */}
 
                 <div className='item'>
                   <div className='number'>03</div>

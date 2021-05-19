@@ -29,9 +29,6 @@ const Service = (): JSX.Element => {
     <div className='section-service'>
       <div className='container'>
         <ul className='breadcrumb'>
-          <Link to='/pdfs/ChiTietTTHC.doc' target='_blank'>
-            <h1>Download</h1>
-          </Link>
           <li>
             <a href='/home'>Trang chủ</a>
           </li>

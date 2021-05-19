@@ -1,7 +1,7 @@
 import { Steps } from 'antd'
 import Modal from 'antd/lib/modal/Modal'
 import React, { useEffect, useState } from 'react'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import { PROFILE_URL } from '../../../share/common/api.constants'
 import { moduleApi } from '../../../share/handle/api.module'
 import ChangementPaper from '../household/changement-paper'
@@ -52,16 +52,12 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
     setStep((state) => state - 1)
   }
 
-  const showModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleOnConfirm = () => {
+  const handleOnConfirm = async () => {
     const document = {
       name: formValues.secondForm?.name,
       address: formValues.secondForm?.address,
       phone: formValues.secondForm?.phone,
-      nameField: 'Dân sự',
+      fieldName: 'Dân sự',
       nameDocument: nameDocument,
       profiles: {
         transferPaper: formValues.firstForm,
@@ -69,15 +65,24 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
         demographicDeclaration: formValues.thirdForm
       }
     }
-    const addProfile = moduleApi.create(PROFILE_URL, document).then((res) => res.data.message)
-    // toast.promise(addProfile, {})
-    console.log('document :>> ', document)
-    // setStep(1)
-    // setIsModalVisible(false)
+    const addProfile = moduleApi.create(PROFILE_URL, document)
+    await toast.promise(addProfile, {
+      loading: 'Loading',
+      success: 'Đăng ký xử lý dịch vụ thành công',
+      error: 'Đăng ký xử lý dịch vụ thất bại'
+    })
+    const status = await addProfile.then((res) => res.data.message)
+    const data = await addProfile.then((res) => res.data.data)
+    if (status === 'success') {
+      console.log('data :>> ', data)
+      setFormValues({})
+      setStep(1)
+      setIsModalVisible(false)
+    }
   }
 
   const handleCancel = () => {
-    setStep(1)
+    setStep((step) => step - 1)
     setIsModalVisible(false)
   }
 
@@ -114,9 +119,7 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
         return (
           <>
             <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOnConfirm} onCancel={handleCancel}>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
+              Bạn đã chắc chắn?
             </Modal>
           </>
         )

@@ -27,9 +27,9 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <Banner />
-      <div className='hot-news'>
+      {/* <div className='hot-news'>
         <div className='container'></div>
-      </div>
+      </div> */}
       <div className='container container-content'>
         <LazyLoad height={200} throttle={100} scroll once>
           <GroupContent data={data} />
