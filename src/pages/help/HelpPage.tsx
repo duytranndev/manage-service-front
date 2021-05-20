@@ -25,17 +25,9 @@ const HowToUse = (): JSX.Element => {
                   <div className='number'>01</div>
                   <div className='text'>Tra cứu thủ tục hành chính, dịch vụ công</div>
                 </div>
-                {/* <div className='item'>
-                  <div className='number'>02</div>
-                  <div className='text'>Chọn cơ quan thực hiện</div>
-                </div> */}
 
                 <div className='item'>
-                  <div className='number'>03</div>
-                  <div className='text'>Đăng ký, đăng nhập tài khoản công dân, doanh nghiệp</div>
-                </div>
-                <div className='item'>
-                  <div className='number'>04</div>
+                  <div className='number'>02</div>
                   <div className='text'>Nộp hồ sơ, tra cứu, theo dõi tình trạng hồ sơ</div>
                 </div>
               </div>
@@ -78,6 +70,7 @@ const HowToUse = (): JSX.Element => {
                       </Grid>
                     </Grid>
                   </div>
+
                   <div className='step-item'>
                     <Grid className='row' container spacing={0}>
                       <Grid item xs={5}>
@@ -85,81 +78,6 @@ const HowToUse = (): JSX.Element => {
                           <div className='head'>
                             <div className='head-number'>
                               <span className='number'>02</span>
-                            </div>
-                            <span className='text'>Chọn cơ quan thực hiện</span>
-                          </div>
-                          <div className='description'>
-                            <p>
-                              Căn cứ vào “Cơ quan thực hiện” trong thông tin thủ tục hành chính, người dân, doanh nghiệp
-                              chọn cơ quan thực hiện tương ứng của thủ tục cần thực hiện
-                            </p>
-                          </div>
-                        </div>
-                      </Grid>
-                      <Grid item xs={7}>
-                        <div className='help-img'>
-                          <video
-                            id='player1'
-                            style={{ maxWidth: '100%' }}
-                            poster='/images/posters/2.png'
-                            playsInline
-                            controls
-                            preload='none'
-                            webkit-playsinline=''>
-                            <source src='https://dichvucong.gov.vn/general/1.mp4' />
-                          </video>
-                        </div>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div className='step-item'>
-                    <Grid className='row' container spacing={0}>
-                      <Grid item xs={5}>
-                        <div className='help-description'>
-                          <div className='head'>
-                            <div className='head-number'>
-                              <span className='number'>03</span>
-                            </div>
-                            <span className='text'>Đăng ký, đăng nhập tài khoản công dân, doanh nghiệp</span>
-                          </div>
-                          <div className='description'>
-                            <p>
-                              Người dân, doanh nghiệp có thể đăng ký tài khoản bằng: Sim ký số; USB ký số; Thuê bao di
-                              động (Dành cho Công dân); Mã số BHXH (Dành cho Công dân)
-                            </p>
-                            <p>
-                              Sau khi đăng ký tài khoản, Người dân, doanh nghiệp đăng nhập bằng 1 trong các cách sau:
-                              Sim ký số; USB ký số; CMT/CCCD.
-                            </p>
-                            <a href='/general/HDSD dang ky tai khoan.docx'>
-                              <span className='-ap icon-paper-clip icon'></span> Xem tệp đính kèm
-                            </a>
-                          </div>
-                        </div>
-                      </Grid>
-                      <Grid item xs={7}>
-                        <div className='help-img'>
-                          <video
-                            id='player1'
-                            style={{ maxWidth: '100%' }}
-                            poster='/images/posters/3.png'
-                            playsInline
-                            controls
-                            preload='none'
-                            webkit-playsinline=''>
-                            <source src='https://dichvucong.gov.vn/general/3.mp4' />
-                          </video>
-                        </div>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div className='step-item'>
-                    <Grid className='row' container spacing={0}>
-                      <Grid item xs={5}>
-                        <div className='help-description'>
-                          <div className='head'>
-                            <div className='head-number'>
-                              <span className='number'>04</span>
                             </div>
                             <span className='text'>Nộp hồ sơ, tra cứu, theo dõi tình trạng hồ sơ</span>
                           </div>

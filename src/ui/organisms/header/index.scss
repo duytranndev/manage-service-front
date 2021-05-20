@@ -73,6 +73,8 @@
       background-position: center;
       transition: 0.5s;
       z-index: 2;
+      box-shadow: 0 8px 10px -6px black;
+      position: fixed;
       .navbar {
         width: 85%;
         margin: auto;
@@ -138,21 +140,22 @@
       }
       .nutlogin {
         width: 150px;
-        padding: 10px 0;
-        color: white;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: #eb2f06;
+        font-size: large;
+        font-weight: 600;
         border: #f6b93b solid;
         cursor: pointer;
         background: transparent;
         border-radius: 5px;
-        font-size: 18px;
+        // font-size: 18px;
       }
       .nutlogin:hover {
         background: #eb2f06;
         color: black;
       }
-    }
-    .menu.fixed {
-      position: fixed;
     }
   }
 }

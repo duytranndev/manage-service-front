@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import AboutPage from '../../pages/about/AboutPage'
+import ContactPage from '../../pages/contact/ContactPage'
 import DetailField from '../../pages/detail-field/DetailFieldPage'
 import DetailService from '../../pages/detail-service/DetailServicePage'
 import HowToUse from '../../pages/help/HelpPage'
@@ -12,6 +13,7 @@ import DetailEventUnit from '../../pages/service/ServicePage'
 import TermsCondition from '../../pages/terms-and-condition/FaqPage'
 import { fetchFields } from '../../store/reducers/field.reducer'
 import { fetchUnits } from '../../store/reducers/unit.reducer'
+import NewsDetail from '../../ui/organisms/detail-news'
 
 export default function AppRouting() {
   const dispatch = useDispatch()
@@ -32,6 +34,9 @@ export default function AppRouting() {
   const routeList = [
     {
       component: <Route key='8' path='/dvc/chi-tiet-dich-vu/:slug' children={<DetailService />} exact />
+    },
+    {
+      component: <Route key='13' path='/news/:slug' component={NewsDetail} exact />
     },
     {
       component: <Route key='9' path='/dvc/doanh-nghiep/:slug' children={<DetailEventUnit />} exact />
@@ -59,6 +64,9 @@ export default function AppRouting() {
     },
     {
       component: <Route key='10' path='/news' component={NewsPage} exact />
+    },
+    {
+      component: <Route key='11' path='/contact' component={ContactPage} exact />
     }
   ]
   return (
