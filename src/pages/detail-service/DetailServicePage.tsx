@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Image from '../../ui/atom/image'
 import CapGiayChuyenHoKhau from '../../ui/organisms/services/capgiaychuyenhokhau'
 import CapLaiSoHoKhau from '../../ui/organisms/services/caplaiso'
+import DangKyKhaiSinh from '../../ui/organisms/services/dangkykhaisinh'
 import DangKyThuongTru from '../../ui/organisms/services/dangkythuongtru'
 import DieuChinhThayDoi from '../../ui/organisms/services/dieuchinhthaydoi'
 import TachSoHoKhau from '../../ui/organisms/services/tacksohokhau'
@@ -23,6 +24,8 @@ const DetailService = (): JSX.Element => {
         return <DieuChinhThayDoi />
       case 'cap-lai-so-ho-khau':
         return <CapLaiSoHoKhau />
+      case 'dang-ky-khai-sinh-7':
+        return <DangKyKhaiSinh />
       default:
         break
     }

@@ -2,7 +2,7 @@ import { Button, createStyles, Grid, makeStyles, TextField, Theme } from '@mater
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import { Form } from 'antd'
 import { ChangeEvent, useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { RegistrationBookInterface } from '../../../../share/interface/registration-book.interface'
 // import './index.scss'
 
@@ -124,7 +124,6 @@ export default function SoHoKhau({ onNextStep, nextStep, parentValues }: StepFor
           endIcon={<NavigateNextIcon />}>
           NEXT
         </Button>
-        <Toaster />
       </Form>
     </>
   )

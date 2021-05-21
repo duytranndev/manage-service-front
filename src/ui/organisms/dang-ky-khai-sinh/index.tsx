@@ -4,19 +4,16 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { PROFILE_URL } from '../../../share/common/api.constants'
 import { moduleApi } from '../../../share/handle/api.module'
-import ChangementPaper from '../household/changement-paper'
-import DemographicDeclaration from '../household/demographic-declaration'
-import TransferPaper from '../household/transfer-paper'
-import './index.scss'
+import BirthCertificate from '../document/birth-certificate'
+import RegistrationDeclaredPaperBirth from '../document/registration-declared-paper-birth'
 const { Step } = Steps
 
-const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
+const SignUpForBirth = ({ nameDocument }: any): JSX.Element => {
   const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,
-    secondForm: undefined,
-    thirdForm: undefined
+    secondForm: undefined
   })
 
   const handleFirstFormChange = (values: any) => {
@@ -34,14 +31,6 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
       secondForm: values
     })
   }
-  const handleThirdFormCChange = (values: any) => {
-    console.log('values :>> ', values)
-
-    setFormValues({
-      ...formValues,
-      thirdForm: values
-    })
-  }
 
   const nextStep = () => {
     setStep((state) => state + 1)
@@ -54,17 +43,17 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
 
   const handleOnConfirm = async () => {
     const document = {
-      name: formValues.secondForm?.name,
-      address: formValues.secondForm?.address,
-      phone: formValues.secondForm?.phone,
+      name: formValues.firstForm?.nameRequest,
+      address: formValues.firstForm?.addressRequester,
+      phone: formValues.firstForm?.phone,
       fieldName: 'Dân sự',
       nameDocument: nameDocument,
       profiles: {
-        transferPaper: formValues.firstForm,
-        changementPaper: formValues.secondForm,
-        demographicDeclaration: formValues.thirdForm
+        registrationDeclaredPaperBirth: formValues.firstForm,
+        birthCertificate: formValues.secondForm
       }
     }
+    console.log('document :>> ', document)
     const addProfile = moduleApi.create(PROFILE_URL, document)
     await toast.promise(addProfile, {
       loading: 'Loading',
@@ -78,6 +67,8 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
       setFormValues({})
       setStep(1)
       setIsModalVisible(false)
+    } else {
+      setIsModalVisible(false)
     }
   }
 
@@ -87,18 +78,22 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
   }
 
   useEffect(() => {
-    step === 3 && setIsModalVisible(true)
+    step === 2 && setIsModalVisible(true)
   }, [step])
 
   const Steps = (visible: number) => {
     switch (visible) {
       case 1:
         return (
-          <TransferPaper parentValues={formValues.firstForm} nextStep={nextStep} onNextStep={handleFirstFormChange} />
+          <RegistrationDeclaredPaperBirth
+            parentValues={formValues.firstForm}
+            nextStep={nextStep}
+            onNextStep={handleFirstFormChange}
+          />
         )
       case 2:
         return (
-          <ChangementPaper
+          <BirthCertificate
             parentValues={formValues.secondForm}
             prevStep={prevStep}
             nextStep={nextStep}
@@ -106,16 +101,6 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
           />
         )
       case 3:
-        return (
-          <DemographicDeclaration
-            parentValues={formValues.thirdForm}
-            prevStep={prevStep}
-            nextStep={nextStep}
-            onNextStep={handleThirdFormCChange}
-          />
-        )
-
-      case 4:
         return (
           <>
             <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOnConfirm} onCancel={handleCancel}>
@@ -130,5 +115,4 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
 
   return <>{Steps(step)}</>
 }
-
-export default HouseholdRegistration
+export default SignUpForBirth

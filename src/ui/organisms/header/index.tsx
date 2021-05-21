@@ -1,4 +1,5 @@
-import React, { createRef, useEffect, useRef } from 'react'
+/* eslint-disable no-restricted-globals */
+import React, { createRef, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './header'
 import './index.scss'
@@ -7,21 +8,30 @@ export default function HeaderComponent(): JSX.Element {
   const myRef = createRef<HTMLDivElement>()
   const prevScrollY = useRef(0)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      const menu = document.querySelector('.menu') as HTMLDivElement
-      if (prevScrollY.current > 100) {
-        menu.classList.add('fixed')
-      }
-      if (prevScrollY.current < 100) {
-        menu.classList.remove('fixed')
-      }
-      prevScrollY.current = currentScrollY
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY
+  //     const menu = document.querySelector('.menu') as HTMLDivElement
+  //     if (prevScrollY.current > 100) {
+  //       menu.classList.add('fixed')
+  //     }
+  //     if (prevScrollY.current < 100) {
+  //       menu.classList.remove('fixed')
+  //     }
+  //     prevScrollY.current = currentScrollY
+  //   }
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
+
+  const handleOnConfirm = () => {
+    var message = confirm(
+      `Bạn có chắc chắn muốn chuyển hướng trang Web tới đường link  https://manage-service-cms.herokuapp.com?`
+    )
+    if (message === true) {
+      window.location.href = 'https://manage-service-cms.herokuapp.com'
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }
 
   return (
     <div ref={myRef} className='menu'>
@@ -67,9 +77,9 @@ export default function HeaderComponent(): JSX.Element {
             </NavLink>
           </li>
         </ul>
-        <a href='https://manage-service-cms.herokuapp.com' className='nutlogin'>
+        <button className='nutlogin' onClick={handleOnConfirm}>
           đăng nhập
-        </a>
+        </button>
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import { useState } from 'react'
 import DrawerComponent from '../../../molecules/Drawer'
-import HouseholdRegistration from '../../household-registration'
+import CapGiayChuyen from '../../cap-giay-chuyen-ho-khau'
 import Content from '../content'
 
 const CapGiayChuyenHoKhau = (): JSX.Element => {
@@ -29,7 +29,7 @@ const CapGiayChuyenHoKhau = (): JSX.Element => {
           </Button>
 
           <DrawerComponent title='Đăng ký thường trú' onClose={onClose} visible={visible} width={1080}>
-            <HouseholdRegistration />
+            <CapGiayChuyen nameDocument='Cấp giấy chuyển hộ khẩu' />
           </DrawerComponent>
         </div>
         <div className='clearfix'></div>

@@ -1,18 +1,17 @@
 import { Steps } from 'antd'
 import Modal from 'antd/lib/modal/Modal'
 import React, { useEffect, useState } from 'react'
-import { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
+import { PROFILE_URL } from '../../../share/common/api.constants'
+import { moduleApi } from '../../../share/handle/api.module'
 import ChangementPaper from '../household/changement-paper'
-import DemographicDeclaration from '../household/demographic-declaration'
 const { Step } = Steps
 
 const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
   const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
-    firstForm: undefined,
-    secondForm: undefined,
-    thirdForm: undefined
+    firstForm: undefined
   })
 
   const handleFirstFormChange = (values: any) => {
@@ -44,33 +43,35 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
   }
 
   const prevStep = () => {
-    if (step === 0) return null
+    if (step === 1) return null
     setStep((state) => state - 1)
   }
 
-  const showModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleOnConfirm = () => {
+  const handleOnConfirm = async () => {
     const document = {
       name: formValues.firstForm?.name,
-      address: formValues.firstForm?.address,
+      address: formValues.firstForm?.temporaryAddress,
       phone: formValues.firstForm?.phone,
       nameField: 'Dân sự',
       nameDocument: nameDocument,
       profile: {
-        document1: formValues.firstForm,
-        document2: formValues.secondForm,
-        document3: formValues.thirdForm
+        changementPaper: formValues.firstForm
       }
     }
-    // toast.promise(,{
-
-    // })
-    console.log('document :>> ', document)
-    // setStep(1)
-    // setIsModalVisible(false)
+    const addProfile = moduleApi.create(PROFILE_URL, document)
+    await toast.promise(addProfile, {
+      loading: 'Loading',
+      success: 'Đăng ký xử lý dịch vụ thành công',
+      error: 'Đăng ký xử lý dịch vụ thất bại'
+    })
+    const status = await addProfile.then((res) => res.data.message)
+    const data = await addProfile.then((res) => res.data.data)
+    if (status === 'success') {
+      console.log('data :>> ', data)
+      setFormValues({})
+      setStep(1)
+      setIsModalVisible(false)
+    }
   }
 
   const handleCancel = () => {
@@ -79,7 +80,7 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
   }
 
   useEffect(() => {
-    step === 3 && setIsModalVisible(true)
+    step === 1 && setIsModalVisible(true)
   }, [step])
 
   const Steps = (visible: number) => {
@@ -87,23 +88,13 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
       case 1:
         return (
           <ChangementPaper
-            parentValues={formValues.secondForm}
+            parentValues={formValues.firstForm}
             prevStep={prevStep}
             nextStep={nextStep}
             onNextStep={handleSecondFormChange}
           />
         )
-      case 3:
-        return (
-          <DemographicDeclaration
-            parentValues={formValues.thirdForm}
-            prevStep={prevStep}
-            nextStep={nextStep}
-            onNextStep={handleThirdFormCChange}
-          />
-        )
-
-      case 4:
+      case 2:
         return (
           <>
             <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOnConfirm} onCancel={handleCancel}>
@@ -118,12 +109,7 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
     }
   }
 
-  return (
-    <>
-      {Steps(step)}
-      <Toaster />
-    </>
-  )
+  return <>{Steps(step)}</>
 }
 
 export default CapLaiSo

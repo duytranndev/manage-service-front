@@ -29,8 +29,8 @@ const CapLaiSoHoKhau = (): JSX.Element => {
             <PlusOutlined /> Đăng ký xử lý dịch vụ trực tuyến
           </Button>
 
-          <DrawerComponent title='Đăng ký thường trú' onClose={onClose} visible={visible} width={1080}>
-            <CapLaiSo />
+          <DrawerComponent title='Cấp lại sổ hộ khẩu' onClose={onClose} visible={visible} width={1080}>
+            <CapLaiSo nameDocument='Cấp lại sổ hộ khẩu' />
           </DrawerComponent>
         </div>
         <div className='clearfix'></div>

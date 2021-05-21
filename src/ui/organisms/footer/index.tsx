@@ -23,10 +23,14 @@ const Footer = (): JSX.Element => {
           <Grid item xs={1}></Grid>
           <Grid item xs={6}>
             <div className='add'>
-              Scanfcode.com CODE WANTS TO BE SIMPLE is an initiative to help the upcoming programmers with the code.
-              Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will
-              help programmers build up concepts in different programming languages that include C, C++, Java, HTML,
-              CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.
+              Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất www.dichvucong.gov.vn.
+              <br />
+              Với quan điểm công khai, minh bạch, lấy người dân, doanh nghiệp làm trung tâm phục vụ, Cổng Dịch vụ công
+              Quốc gia kết nối, cung cấp thông tin về thủ tục hành chính và dịch vụ công trực tuyến; hỗ trợ thực hiện,
+              giám sát, đánh giá việc giải quyết thủ tục hành chính, dịch vụ công trực tuyến và tiếp nhận, xử lý phản
+              ánh, kiến nghị của cá nhân, tổ chức trên toàn quốc.
+              <br />
+              Chúng tôi luôn cố gắng mang đến những điều tốt đẹp nhất cho tất cả mọi người!
             </div>
           </Grid>
           <Grid item xs={2} className='member'>

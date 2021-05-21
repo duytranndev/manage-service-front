@@ -6,19 +6,6 @@ import TachHoKhau from '../../tach-so-ho-khau/index'
 import Content from '../content'
 
 const TachSoHoKhau = (): JSX.Element => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
-
-  const showModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleOk = () => {
-    setIsModalVisible(false)
-  }
-
-  const handleCancel = () => {
-    setIsModalVisible(false)
-  }
   const [visible, setVisible] = useState<boolean>(false)
   const showDrawer = () => {
     setVisible(true)

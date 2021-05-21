@@ -5,7 +5,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import { Form, Radio } from 'antd'
 import ButtonGroup from 'antd/lib/button/button-group'
 import { ChangeEvent, useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { TransferPaperInterface } from '../../../../share/interface/transferpaper.interface'
 // import './index.scss'
 
@@ -483,7 +483,6 @@ export default function TransferPaper({ onNextStep, nextStep, parentValues }: St
             NEXT
           </Button>
         </div>
-        <Toaster />
       </Form>
     </>
   )

@@ -1,22 +1,17 @@
-import { Steps } from 'antd'
 import Modal from 'antd/lib/modal/Modal'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { PROFILE_URL } from '../../../share/common/api.constants'
 import { moduleApi } from '../../../share/handle/api.module'
 import ChangementPaper from '../household/changement-paper'
-import DemographicDeclaration from '../household/demographic-declaration'
-import TransferPaper from '../household/transfer-paper'
-import './index.scss'
-const { Step } = Steps
+import SoHoKhau from '../household/so-ho-khau'
 
-const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
+const CapGiayChuyen = ({ nameDocument }: any) => {
   const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,
-    secondForm: undefined,
-    thirdForm: undefined
+    secondForm: undefined
   })
 
   const handleFirstFormChange = (values: any) => {
@@ -34,14 +29,6 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
       secondForm: values
     })
   }
-  const handleThirdFormCChange = (values: any) => {
-    console.log('values :>> ', values)
-
-    setFormValues({
-      ...formValues,
-      thirdForm: values
-    })
-  }
 
   const nextStep = () => {
     setStep((state) => state + 1)
@@ -52,17 +39,20 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
     setStep((state) => state - 1)
   }
 
+  const showModal = () => {
+    setIsModalVisible(true)
+  }
+
   const handleOnConfirm = async () => {
     const document = {
       name: formValues.secondForm?.name,
-      address: formValues.secondForm?.address,
+      address: formValues.secondForm?.temporaryAddress,
       phone: formValues.secondForm?.phone,
-      fieldName: 'Dân sự',
+      nameField: 'Dân sự',
       nameDocument: nameDocument,
-      profiles: {
-        transferPaper: formValues.firstForm,
-        changementPaper: formValues.secondForm,
-        demographicDeclaration: formValues.thirdForm
+      profile: {
+        registrationBook: formValues.firstForm,
+        changementPaper: formValues.secondForm
       }
     }
     const addProfile = moduleApi.create(PROFILE_URL, document)
@@ -82,20 +72,18 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
   }
 
   const handleCancel = () => {
-    setStep((step) => step - 1)
+    setStep(1)
     setIsModalVisible(false)
   }
 
   useEffect(() => {
-    step === 3 && setIsModalVisible(true)
+    step === 2 && setIsModalVisible(true)
   }, [step])
 
   const Steps = (visible: number) => {
     switch (visible) {
       case 1:
-        return (
-          <TransferPaper parentValues={formValues.firstForm} nextStep={nextStep} onNextStep={handleFirstFormChange} />
-        )
+        return <SoHoKhau parentValues={formValues.firstForm} nextStep={nextStep} onNextStep={handleFirstFormChange} />
       case 2:
         return (
           <ChangementPaper
@@ -105,21 +93,14 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
             onNextStep={handleSecondFormChange}
           />
         )
-      case 3:
-        return (
-          <DemographicDeclaration
-            parentValues={formValues.thirdForm}
-            prevStep={prevStep}
-            nextStep={nextStep}
-            onNextStep={handleThirdFormCChange}
-          />
-        )
 
-      case 4:
+      case 3:
         return (
           <>
             <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOnConfirm} onCancel={handleCancel}>
-              Bạn đã chắc chắn?
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
             </Modal>
           </>
         )
@@ -131,4 +112,4 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
   return <>{Steps(step)}</>
 }
 
-export default HouseholdRegistration
+export default CapGiayChuyen

@@ -1,9 +1,10 @@
 import { Steps } from 'antd'
 import Modal from 'antd/lib/modal/Modal'
 import React, { useEffect, useState } from 'react'
-import { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
+import { PROFILE_URL } from '../../../share/common/api.constants'
+import { moduleApi } from '../../../share/handle/api.module'
 import ChangementPaper from '../household/changement-paper'
-import DemographicDeclaration from '../household/demographic-declaration'
 import SoHoKhau from '../household/so-ho-khau'
 import './index.scss'
 const { Step } = Steps
@@ -13,8 +14,7 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,
-    secondForm: undefined,
-    thirdForm: undefined
+    secondForm: undefined
   })
 
   const handleFirstFormChange = (values: any) => {
@@ -54,25 +54,32 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
     setIsModalVisible(true)
   }
 
-  const handleOnConfirm = () => {
+  const handleOnConfirm = async () => {
     const document = {
-      name: formValues.firstForm?.name,
-      address: formValues.firstForm?.address,
-      phone: formValues.firstForm?.phone,
+      name: formValues.secondForm?.name,
+      address: formValues.secondForm?.temporaryAddress,
+      phone: formValues.secondForm?.phone,
       nameField: 'Dân sự',
       nameDocument: nameDocument,
       profile: {
-        document1: formValues.firstForm,
-        document2: formValues.secondForm,
-        document3: formValues.thirdForm
+        registrationBook: formValues.firstForm,
+        changementPaper: formValues.secondForm
       }
     }
-    // toast.promise(,{
-
-    // })
-    console.log('document :>> ', document)
-    // setStep(1)
-    // setIsModalVisible(false)
+    const addProfile = moduleApi.create(PROFILE_URL, document)
+    await toast.promise(addProfile, {
+      loading: 'Loading',
+      success: 'Đăng ký xử lý dịch vụ thành công',
+      error: 'Đăng ký xử lý dịch vụ thất bại'
+    })
+    const status = await addProfile.then((res) => res.data.message)
+    const data = await addProfile.then((res) => res.data.data)
+    if (status === 'success') {
+      console.log('data :>> ', data)
+      setFormValues({})
+      setStep(1)
+      setIsModalVisible(false)
+    }
   }
 
   const handleCancel = () => {
@@ -81,7 +88,7 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
   }
 
   useEffect(() => {
-    step === 3 && setIsModalVisible(true)
+    step === 2 && setIsModalVisible(true)
   }, [step])
 
   const Steps = (visible: number) => {
@@ -97,17 +104,8 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
             onNextStep={handleSecondFormChange}
           />
         )
-      case 3:
-        return (
-          <DemographicDeclaration
-            parentValues={formValues.thirdForm}
-            prevStep={prevStep}
-            nextStep={nextStep}
-            onNextStep={handleThirdFormCChange}
-          />
-        )
 
-      case 4:
+      case 3:
         return (
           <>
             <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOnConfirm} onCancel={handleCancel}>
@@ -122,12 +120,7 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
     }
   }
 
-  return (
-    <>
-      {Steps(step)}
-      <Toaster />
-    </>
-  )
+  return <>{Steps(step)}</>
 }
 
 export default TachHoKhau

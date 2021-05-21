@@ -1,3 +1,4 @@
+import { Carousel } from 'antd'
 import React, { useMemo } from 'react'
 import LazyLoad from 'react-lazyload'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,6 +16,14 @@ const HomePage = (): JSX.Element => {
   const units = useSelector<AppState, UnitInterface[]>((state) => state.unit.data)
   const dispatch = useDispatch()
 
+  const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79'
+  }
+
   const convertCategoryField = (FieldArr: FieldInterface[], UnitArr: UnitInterface[]) => {
     return FieldArr.map((field) => {
       const subMenu = UnitArr.filter((unit) => unit.fieldId === field._id)
@@ -27,48 +36,23 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <Banner />
-      <div className='hot-news'>
-        <div className='container'>
-          <div className='owl-carousel owl-theme'>
-            <div className='item'>
-              <h4>1</h4>
-            </div>
-            <div className='item'>
-              <h4>2</h4>
-            </div>
-            <div className='item'>
-              <h4>3</h4>
-            </div>
-            <div className='item'>
-              <h4>4</h4>
-            </div>
-            <div className='item'>
-              <h4>5</h4>
-            </div>
-            <div className='item'>
-              <h4>6</h4>
-            </div>
-            <div className='item'>
-              <h4>7</h4>
-            </div>
-            <div className='item'>
-              <h4>8</h4>
-            </div>
-            <div className='item'>
-              <h4>9</h4>
-            </div>
-            <div className='item'>
-              <h4>10</h4>
-            </div>
-            <div className='item'>
-              <h4>11</h4>
-            </div>
-            <div className='item'>
-              <h4>12</h4>
-            </div>
-          </div>
+      {/* <div className='hot-news'>
+        <div className='container'></div>
+      </div> */}
+      <Carousel autoplay className='carousel'>
+        <div>
+          <h3>1</h3>
         </div>
-      </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+      </Carousel>
       <div className='container container-content'>
         <LazyLoad height={200} throttle={100} scroll once>
           <GroupContent data={data} />
