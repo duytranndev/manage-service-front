@@ -52,9 +52,9 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
       name: formValues.firstForm?.name,
       address: formValues.firstForm?.temporaryAddress,
       phone: formValues.firstForm?.phone,
-      nameField: 'Dân sự',
+      fieldName: 'Dân sự',
       nameDocument: nameDocument,
-      profile: {
+      profiles: {
         changementPaper: formValues.firstForm
       }
     }

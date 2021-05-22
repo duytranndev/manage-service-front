@@ -105,7 +105,6 @@ export default function SoHoKhau({ onNextStep, nextStep, parentValues }: StepFor
                 style={{ margin: 8 }}
                 placeholder='Hồ sơ hộ khẩu số'
                 fullWidth
-                required
                 type='number'
                 name='numberProfileRegistrationBook'
                 onChange={handelOnChange}

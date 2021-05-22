@@ -177,7 +177,6 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
                 id='standard-full-width'
                 label='Hộ chiếu số'
                 style={{ margin: 8 }}
-                required
                 onChange={handelOnChange}
                 name='passport'
                 value={formData?.passport || ''}
@@ -361,7 +360,6 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
               <TextField
                 id='standard-full-width'
                 label='Hộ chiếu số'
-                required
                 onChange={handelOnChange}
                 value={formData?.passportPeopleChange}
                 name='passportPeopleChange'

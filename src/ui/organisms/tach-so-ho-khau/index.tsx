@@ -59,9 +59,9 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
       name: formValues.secondForm?.name,
       address: formValues.secondForm?.temporaryAddress,
       phone: formValues.secondForm?.phone,
-      nameField: 'Dân sự',
+      fieldName: 'Dân sự',
       nameDocument: nameDocument,
-      profile: {
+      profiles: {
         registrationBook: formValues.firstForm,
         changementPaper: formValues.secondForm
       }

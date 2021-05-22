@@ -274,7 +274,6 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
 
             <Grid item xs={6}>
               <TextField
-                // required
                 id='standard-full-width'
                 label='Hộ chiếu số'
                 style={{ margin: 8 }}
