@@ -1,9 +1,12 @@
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
+import { ServicePath } from '../../share/common/app.constants'
 import Image from '../../ui/atom/image'
 import CapGiayChuyenHoKhau from '../../ui/organisms/services/capgiaychuyenhokhau'
 import CapLaiSoHoKhau from '../../ui/organisms/services/caplaiso'
+import DangKyKetHon from '../../ui/organisms/services/dangkykethon'
 import DangKyKhaiSinh from '../../ui/organisms/services/dangkykhaisinh'
+import DangKyTamTru from '../../ui/organisms/services/dangkytamtru'
 import DangKyThuongTru from '../../ui/organisms/services/dangkythuongtru'
 import DieuChinhThayDoi from '../../ui/organisms/services/dieuchinhthaydoi'
 import TachSoHoKhau from '../../ui/organisms/services/tacksohokhau'
@@ -14,18 +17,22 @@ const DetailService = (): JSX.Element => {
 
   const Service = (slug: string) => {
     switch (slug) {
-      case 'dang-ky-thuong-tru':
+      case ServicePath.dangKythuongTru:
         return <DangKyThuongTru />
-      case 'tach-so-ho-khau':
+      case ServicePath.tachSoHoKhau:
         return <TachSoHoKhau />
-      case 'cap-giay-chuyen-ho-khau':
+      case ServicePath.capGiayChuyenHoKhau:
         return <CapGiayChuyenHoKhau />
-      case 'dieu-chinh-nhung-thay-doi-trong-so-ho-khau':
+      case ServicePath.dieuChinhNhungThayDoiTrongSoHoKhau:
         return <DieuChinhThayDoi />
-      case 'cap-lai-so-ho-khau':
+      case ServicePath.capLaiSoHoKhau:
         return <CapLaiSoHoKhau />
-      case 'dang-ky-khai-sinh-7':
+      case ServicePath.dangKyKhaiSinh:
         return <DangKyKhaiSinh />
+      case ServicePath.dangKyKetHon:
+        return <DangKyKetHon />
+      case ServicePath.dangKyTamTru:
+        return <DangKyTamTru />
       default:
         break
     }

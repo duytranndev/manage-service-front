@@ -88,3 +88,14 @@ export const Logos = [
     path: '/images/tamdung.svg'
   }
 ]
+
+export const ServicePath = Object.freeze({
+  dangKythuongTru: 'dang-ky-thuong-tru',
+  tachSoHoKhau: 'tach-so-ho-khau',
+  capGiayChuyenHoKhau: 'cap-giay-chuyen-ho-khau',
+  dieuChinhNhungThayDoiTrongSoHoKhau: 'dieu-chinh-nhung-thay-doi-trong-so-ho-khau',
+  capLaiSoHoKhau: 'cap-lai-so-ho-khau',
+  dangKyKhaiSinh: 'dang-ky-khai-sinh-7',
+  dangKyKetHon: 'thu-tuc-dang-ky-ket-hon',
+  dangKyTamTru: 'dang-ky-so-tam-tru'
+})
