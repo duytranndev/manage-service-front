@@ -1,4 +1,3 @@
-import { Carousel } from 'antd'
 import React, { useMemo } from 'react'
 import LazyLoad from 'react-lazyload'
 import { useDispatch, useSelector } from 'react-redux'
@@ -39,7 +38,7 @@ const HomePage = (): JSX.Element => {
       {/* <div className='hot-news'>
         <div className='container'></div>
       </div> */}
-      <Carousel autoplay className='carousel'>
+      {/* <Carousel autoplay className='carousel'>
         <div>
           <h3>1</h3>
         </div>
@@ -52,7 +51,7 @@ const HomePage = (): JSX.Element => {
         <div>
           <h3>4</h3>
         </div>
-      </Carousel>
+      </Carousel> */}
       <div className='container container-content'>
         <LazyLoad height={200} throttle={100} scroll once>
           <GroupContent data={data} />

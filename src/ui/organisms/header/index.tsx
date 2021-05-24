@@ -25,9 +25,7 @@ export default function HeaderComponent(): JSX.Element {
   // }, [])
 
   const handleOnConfirm = () => {
-    var message = confirm(
-      `Bạn có chắc chắn muốn chuyển hướng trang Web tới đường link  https://manage-service-cms.herokuapp.com?`
-    )
+    var message = confirm(`Bạn có chắc chắn muốn chuyển hướng trang quản lý?`)
     if (message === true) {
       window.location.href = 'https://manage-service-cms.herokuapp.com'
     }
@@ -36,10 +34,10 @@ export default function HeaderComponent(): JSX.Element {
   return (
     <div ref={myRef} className='menu'>
       <div className='navbar'>
-        <div>
+        <div style={{ marginTop: '-5px' }}>
           <Link to='' className='vienlogo'>
             <img
-              src='https://dichvucong.gov.vn/p/home/theme/img/header/logo.png'
+              src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Emblem_of_the_Socialist_Republic_of_Vietnam.svg/800px-Emblem_of_the_Socialist_Republic_of_Vietnam.svg.png'
               style={{ width: '100%', height: '100%' }}
               alt=''
             />

@@ -1,15 +1,39 @@
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import { Button } from 'antd'
 import Form from 'antd/lib/form/Form'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from '../../ui/atom/image'
+import data from './data.js'
 import './index.scss'
 
 const ContactPage = (): JSX.Element => {
+  const [people, setPeople] = useState(data)
+  const [index, setIndex] = useState(0)
   const [formContact, setFormContact] = useState({
     name: '',
     email: '',
     subject: ''
   })
+
+  useEffect(() => {
+    const lastIndex = people.length - 1
+    if (index < 0) {
+      setIndex(lastIndex)
+    }
+    if (index > lastIndex) {
+      setIndex(0)
+    }
+  }, [index, people])
+
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1)
+    }, 5000)
+    return () => {
+      clearInterval(slider)
+    }
+  }, [index])
 
   const handleOnChange = (e: any) => {
     setFormContact({ ...formContact, [e.target.name]: e.target.value })
@@ -19,13 +43,16 @@ const ContactPage = (): JSX.Element => {
     console.log('object')
   }
 
-  console.log('formContact :>> ', formContact)
+  console.log('people :>> ', people)
   return (
     <>
       <div className='my-team'>
         <div className='about-section'>
           <h1>Sứ mệnh</h1>
-          <p>Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất www.dichvucong.gov.vn</p>
+          <p>
+            Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất
+            http://manage-service-front.herokuapp.com
+          </p>
           <p>
             Với quan điểm công khai, minh bạch, lấy người dân, doanh nghiệp làm trung tâm phục vụ, Cổng Dịch vụ công
             Quốc gia kết nối, cung cấp thông tin về thủ tục hành chính và dịch vụ công trực tuyến; hỗ trợ thực hiện,
@@ -34,8 +61,43 @@ const ContactPage = (): JSX.Element => {
           </p>
           <p>Chúng tôi luôn cố gắng mang đến những điều tốt đẹp nhất cho tất cả mọi người!</p>
         </div>
-        <h2 style={{ textAlign: 'center', marginTop: '15px' }}>My Team</h2>
-        <div className='row'>
+        <div className='test' style={{ marginTop: '20px' }}>
+          <section className='section'>
+            <div className='title'>
+              <h2></h2>
+            </div>
+            <div className='section-center'>
+              {people.map((person, personIndex) => {
+                const { id, image, phone, name, title, quote } = person
+                console.log('person :>> ', person)
+                let position = 'nextSlide'
+                if (personIndex === index) {
+                  position = 'activeSlide'
+                }
+                if (personIndex === index - 1 || (index === 0 && personIndex === people.length - 1)) {
+                  position = 'lastSlide'
+                }
+
+                return (
+                  <article className={position} key={id}>
+                    <img src={image} alt={name} className='person-img' />
+                    <h4>{name}</h4>
+                    <p className='title'>{title}</p>
+                    <p className='title'>Contact: {phone}</p>
+                    <p className='text'>{quote}</p>
+                  </article>
+                )
+              })}
+              <button className='prev' onClick={() => setIndex(index - 1)}>
+                <ArrowBackIcon />
+              </button>
+              <button className='next' onClick={() => setIndex(index + 1)}>
+                <ArrowForwardIcon />
+              </button>
+            </div>
+          </section>
+        </div>
+        {/* <div className='row'>
           <div className='column'>
             <div className='card'>
               <div className='image'>
@@ -117,7 +179,7 @@ const ContactPage = (): JSX.Element => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className='container contact'>
         <div className='row'>
