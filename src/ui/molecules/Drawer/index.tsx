@@ -22,7 +22,7 @@ const DrawerComponent = ({ children, title, width, onClose, visible }: DrawerCom
           style={{
             textAlign: 'right'
           }}>
-          <Button onClick={onClose} style={{ marginRight: 8 }}>
+          <Button onClick={onClose} style={{ marginRight: 65 }}>
             Cancel
           </Button>
         </div>

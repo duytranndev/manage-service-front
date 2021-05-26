@@ -162,13 +162,21 @@ const DangKyKetHon = () => {
       <div className='article'>
         <p id='6177'>
           - Nam từ đủ 20 tuổi trở lên, nữ từ đủ 18 tuổi trở lên;
-          <br />- Việc kết hôn do nam và nữ tự nguyện quyết định; - Các bên không bị mất năng lực hành vi dân sự; - Việc
-          kết hôn không thuộc một trong các trường hợp cấm kết hôn, gồm: + Kết hôn giả tạo; + Tảo hôn, cưỡng ép kết hôn,
-          lừa dối kết hôn, cản trở kết hôn; + Người đang có vợ, có chồng mà kết hôn với người khác hoặc chưa có vợ, chưa
-          có chồng mà kết hôn với người đang có chồng, có vợ; + Kết hôn giữa những người cùng dòng máu về trực hệ; giữa
-          những người có họ trong phạm vi ba đời; giữa cha, mẹ nuôi với con nuôi; giữa người đã từng là cha, mẹ nuôi với
-          con nuôi, cha chồng với con dâu, mẹ vợ với con rể, cha dượng với con riêng của vợ, mẹ kế với con riêng của
-          chồng. * Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính.
+          <br />- Việc kết hôn do nam và nữ tự nguyện quyết định;
+          <br />
+          - Các bên không bị mất năng lực hành vi dân sự;
+          <br />- Việc kết hôn không thuộc một trong các trường hợp cấm kết hôn, gồm:
+          <br />
+          + Kết hôn giả tạo;
+          <br />
+          + Tảo hôn, cưỡng ép kết hôn, lừa dối kết hôn, cản trở kết hôn;
+          <br />
+          + Người đang có vợ, có chồng mà kết hôn với người khác hoặc chưa có vợ, chưa có chồng mà kết hôn với người
+          đang có chồng, có vợ;
+          <br />+ Kết hôn giữa những người cùng dòng máu về trực hệ; giữa những người có họ trong phạm vi ba đời; giữa
+          cha, mẹ nuôi với con nuôi; giữa người đã từng là cha, mẹ nuôi với con nuôi, cha chồng với con dâu, mẹ vợ với
+          con rể, cha dượng với con riêng của vợ, mẹ kế với con riêng của chồng.
+          <br />* Nhà nước không thừa nhận hôn nhân giữa những người cùng giới tính.
         </p>
       </div>
     </div>

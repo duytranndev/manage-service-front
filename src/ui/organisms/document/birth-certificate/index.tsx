@@ -140,7 +140,6 @@ const BirthCertificate = ({ parentValues, onNextStep, nextStep, prevStep }: Step
             <Grid item xs={12}>
               <TextField
                 id='standard-full-width'
-                required
                 label='Mã số BHXH/Thẻ BHYT số'
                 style={{ margin: 8 }}
                 onChange={handelOnChange}

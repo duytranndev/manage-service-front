@@ -26,7 +26,7 @@ const AboutPage = (): JSX.Element => {
           </p>
           <p>
             Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất
-            <a href='https://www.dichvucong.gov.vn'> www.dichvucong.gov.vn</a>
+            <a href='http://manage-service-front.herokuapp.com/'> http://manage-service-front.herokuapp.com</a>
           </p>
           <div className='list-intro-info'>
             <div className='item'>

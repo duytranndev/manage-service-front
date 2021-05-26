@@ -5,14 +5,18 @@ export default function Banner() {
       <h1>CỔNG DỊCH VỤ CÔNG </h1>
       <p>Hỗ trợ nhanh chóng, tiện ích mọi lúc mọi nơi</p>
       <div>
-        <button className='button'>
-          <span className='span' />
-          WATCH MORE
-        </button>
-        <button className='button'>
-          <span className='span' />
-          SUBSCRIBE
-        </button>
+        <a href='/about'>
+          <button className='button'>
+            <span className='span' />
+            WATCH MORE
+          </button>
+        </a>
+        <a href='/contact'>
+          <button className='button'>
+            <span className='span' />
+            CONTACT
+          </button>
+        </a>
       </div>
     </div>
   )

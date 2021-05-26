@@ -58,7 +58,7 @@ const Footer = (): JSX.Element => {
               <Link to='/about'>GIỚI THIỆU</Link>
             </div>
             <div className='add'>
-              <Link to='/faq'>ĐIỀU KHOẢN SỬ DỤNG</Link>
+              <Link to='/terms'>ĐIỀU KHOẢN SỬ DỤNG</Link>
             </div>
             <div className='add'>
               <Link to='news'>TIN TỨC</Link>
@@ -73,24 +73,7 @@ const Footer = (): JSX.Element => {
           <Grid item xs={1}></Grid>
         </Grid>
       </div>
-      <Grid container spacing={0} className='row-contact'>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={3}>
-          <div className='add'>Cơ quan chủ quản: Văn phòng Chính phủ</div>
-        </Grid>
-        <Grid item xs={2}>
-          <div className='add'>www.dichvucong.gov.vn</div>
-        </Grid>
-        <Grid item xs={2}>
-          <div className='add'>Tổng đài hỗ trợ: 0339382945</div>
-        </Grid>
-        <Grid item xs={3}>
-          <address style={{ color: 'white' }} className='add'>
-            Email: <a href='mailto:duytrann.dev@gmail.com'>duytrann.dev@gmail.com</a>
-          </address>
-        </Grid>
-        <Grid item xs={1}></Grid>
-      </Grid>
+      <Grid container spacing={0} className='row-contact' style={{ height: '30px' }}></Grid>
     </>
   )
 }

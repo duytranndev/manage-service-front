@@ -10,6 +10,7 @@ import { AppState } from '../../store/types'
 
 const NewsPage = (): JSX.Element => {
   const listNews = useSelector<AppState, NewsInterface[]>((state) => state.news.data)
+  const isPending = useSelector<AppState>((state) => state.news.pending)
   const dispatch = useDispatch()
   useEffect(() => {
     if (listNews.length === 0) {
@@ -20,25 +21,27 @@ const NewsPage = (): JSX.Element => {
   // useEffect(() => {
   //   moduleApi.get(NEWS_URL).then((res) => setListNews(res.data.data))
   // }, [])
-  console.log('listNews :>> ', listNews)
+  console.log('isPending :>> ', isPending)
 
   return (
-    <div className='container'>
-      <List
-        itemLayout='horizontal'
-        dataSource={listNews}
-        renderItem={(item) => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' />}
-              title={<Link to={`/news/${item.slug}`}>{item.title}</Link>}
-              description={item.insertTime}
-            />
-          </List.Item>
-        )}
-      />
-      ,
-    </div>
+    <>
+      <div className='container'>
+        {isPending ? <div className='classic-5'></div> : null}
+        <List
+          itemLayout='horizontal'
+          dataSource={listNews}
+          renderItem={(item) => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={<Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' />}
+                title={<Link to={`/news/${item.slug}`}>{item.title}</Link>}
+                description={item.insertTime}
+              />
+            </List.Item>
+          )}
+        />
+      </div>
+    </>
   )
 }
 export default NewsPage

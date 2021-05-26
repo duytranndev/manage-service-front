@@ -7,6 +7,7 @@ import DetailField from '../../pages/detail-field/DetailFieldPage'
 import DetailService from '../../pages/detail-service/DetailServicePage'
 import HowToUse from '../../pages/help/HelpPage'
 import HomePage from '../../pages/home/HomePage'
+import MyProfile from '../../pages/MyProfile/MyProfile'
 import NewsPage from '../../pages/news/NewsPage'
 import NotFound from '../../pages/NotFound/NotFoundPage'
 import DetailEventUnit from '../../pages/service/ServicePage'
@@ -48,7 +49,10 @@ export default function AppRouting() {
       component: <Route key='6' path='/dvc/:slug' children={<DetailField />} exact />
     },
     {
-      component: <Route key='3' path='/faq' component={TermsCondition} exact />
+      component: <Route key='3' path='/terms' component={TermsCondition} exact />
+    },
+    {
+      component: <Route key='14' path='/my-profile' component={MyProfile} exact />
     },
     {
       component: <Route key='4' path='/about' component={AboutPage} exact />

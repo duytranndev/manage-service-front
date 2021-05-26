@@ -2,6 +2,7 @@ import { Action, applyMiddleware, combineReducers, createStore, Middleware } fro
 import thunk from 'redux-thunk'
 import { FieldReducer } from './reducers/field.reducer'
 import { NewsReducer } from './reducers/news.reducer'
+import { ProfileSuccessReducer } from './reducers/profileSuccess'
 import { ServiceReducer } from './reducers/service.reducer'
 import { UnitReducer } from './reducers/unit.reducer'
 
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
   field: FieldReducer,
   unit: UnitReducer,
   service: ServiceReducer,
-  news: NewsReducer
+  news: NewsReducer,
+  profileSuccess: ProfileSuccessReducer
 })
 
 const middleWare = [thunk]

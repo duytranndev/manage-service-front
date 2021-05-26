@@ -55,7 +55,7 @@ export default function HeaderComponent(): JSX.Element {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/faq' activeClassName='active'>
+            <NavLink to='/terms' activeClassName='active'>
               ĐIỀU KHOẢN SỬ DỤNG
             </NavLink>
           </li>
@@ -74,9 +74,25 @@ export default function HeaderComponent(): JSX.Element {
               Liên hệ
             </NavLink>
           </li>
+          <li className='hot'>
+            <a
+              className='hot'
+              href='/covid-tracker'
+              // activeClassName='active'
+              style={{ fontSize: '120%', textTransform: 'uppercase', fontWeight: 600, color: 'red' }}>
+              COVID-19
+              <img
+                style={{ marginLeft: '5px' }}
+                width='20px'
+                height='20px'
+                src='https://dothiduan.com/wp-content/uploads/2020/07/hot-icon-gif.gif'
+                alt=''
+              />
+            </a>
+          </li>
         </ul>
         <button className='nutlogin' onClick={handleOnConfirm}>
-          đăng nhập
+          admin
         </button>
       </div>
     </div>
