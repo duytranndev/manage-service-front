@@ -1,9 +1,10 @@
-import { Button, ButtonGroup, createStyles, Grid, makeStyles, TextField, Theme } from '@material-ui/core'
+import { Button, createStyles, Grid, makeStyles, TextField, Theme } from '@material-ui/core'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff'
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import { Form, Radio } from 'antd'
+import ButtonGroup from 'antd/lib/button/button-group'
 import { ChangeEvent, useState } from 'react'
 import { ChangementPaperInterface } from '../../../../share/interface/changementpaper.interface'
 // import './index.scss'
@@ -625,7 +626,15 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
             )
           })}
         </div>
-        <ButtonGroup fullWidth>
+        <ButtonGroup>
+          <Button
+            variant='contained'
+            onClick={comeBackStep}
+            fullWidth
+            className={classes.button}
+            startIcon={<KeyboardBackspaceIcon />}>
+            BACK
+          </Button>
           <Button
             type='submit'
             variant='contained'
@@ -634,14 +643,6 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
             color='primary'
             endIcon={<NavigateNextIcon />}>
             NEXT
-          </Button>
-          <Button
-            variant='contained'
-            onClick={comeBackStep}
-            fullWidth
-            className={classes.button}
-            startIcon={<KeyboardBackspaceIcon />}>
-            BACK
           </Button>
         </ButtonGroup>
       </Form>

@@ -11,7 +11,7 @@ import './index.scss'
 const { Step } = Steps
 
 const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
-  const [step, setStep] = useState<number>(1)
+  const [step, setStep] = useState<number>(3)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,

@@ -81,15 +81,10 @@ const TermsCondition = (): JSX.Element => {
             </li>
             <li>Các hành vi khác theo quy định của pháp luật.</li>
           </ul>
+
           <div className='divider-gray'></div>
           <div className='main-title-sub'>
-            3. Cổng Dịch vụ công quốc gia có quyền Tạm dừng, Khoá, Huỷ các tài khoản trên cổng có các hành vi vi phạm
-            pháp luật, gian lận hoặc không tuân thủ các điều khoản sử dụng đã nêu ở trên mà không cần thông báo cũng như
-            bồi thường
-          </div>
-          <div className='divider-gray'></div>
-          <div className='main-title-sub'>
-            4. Cổng Dịch vụ công Quốc gia không chia sẻ thông tin về người sử dụng với các cơ quan khác mà không có sự
+            3. Cổng Dịch vụ công Quốc gia không chia sẻ thông tin về người sử dụng với các cơ quan khác mà không có sự
             cho phép của người sử dụng, trừ các trường hợp:
           </div>
           <ul className='list-dot'>
@@ -104,7 +99,7 @@ const TermsCondition = (): JSX.Element => {
           </ul>
           <div className='divider-gray'></div>
           <div className='main-title-sub'>
-            5. Trong trường hợp sửa đổi nội dung các điều khoản và điều kiện sử dụng Cổng Dịch vụ công Quốc gia, các nội
+            4. Trong trường hợp sửa đổi nội dung các điều khoản và điều kiện sử dụng Cổng Dịch vụ công Quốc gia, các nội
             dung sửa đổi sẽ được thông báo trên Cổng. Người sử dụng tiếp tục sử dụng và tiếp tục thực hiện các yêu cầu
             dịch vụ trên Cổng có nghĩa là đã chấp nhận các sửa đổi đó.
           </div>

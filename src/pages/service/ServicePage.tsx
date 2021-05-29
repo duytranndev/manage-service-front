@@ -59,12 +59,14 @@ const Service = (): JSX.Element => {
           </ul>
           <div className='divider-gray'></div>
           <div className='actions mart20 center'>
-            <button className='btn btn-main' style={{ maxWidth: '300px', width: '100%' }}>
-              Xem tất cả thủ tục hành chính
-            </button>
+            <Link to='/home'>
+              <button className='btn btn-main' style={{ maxWidth: '300px', width: '100%' }}>
+                Xem tất cả thủ tục hành chính
+              </button>
+            </Link>
           </div>
         </div>
-        <div className='box-cat-cd'>
+        {/* <div className='box-cat-cd'>
           <div className='main-title-sub'>Câu hỏi thường gặp</div>
           <ul className='list-document -question'>
             <li>
@@ -84,12 +86,7 @@ const Service = (): JSX.Element => {
               </a>
             </li>
           </ul>
-          {/* <div className='actions mart20 center'>
-            <button className='btn btn-main' style={{ maxWidth: '300px', width: '100%' }}>
-              Xem thêm
-            </button>
-          </div> */}
-        </div>
+        </div> */}
       </div>
     </div>
   )

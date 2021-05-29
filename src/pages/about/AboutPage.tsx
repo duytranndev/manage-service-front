@@ -43,9 +43,9 @@ const AboutPage = (): JSX.Element => {
                 <img src='/images/denghi.svg' alt='' />
               </div>
               <p>
-                Đề nghị hỗ trợ thực hiện thủ tục hành chính, dịch vụ công qua{' '}
+                Đề nghị hỗ trợ thực hiện thủ tục hành chính, dịch vụ công qua
                 <strong>
-                  <i>Tổng đài điện thoại 18001096</i> hoặc trực tuyến tại mục Hỗ trợ;{' '}
+                  <i>Tổng đài điện thoại 0339382945</i>
                 </strong>
               </p>
             </div>
@@ -78,21 +78,6 @@ const AboutPage = (): JSX.Element => {
                 Dịch vụ công Quốc gia;
               </p>
             </div>
-            <div className='item'>
-              <div className='icon'>
-                <img src='/images/payment.svg' alt='' />
-              </div>
-              <p>
-                Sử dụng tài khoản của các ngân hàng, trung gian thanh toán để thanh toán trực tuyến phí, lệ phí thực
-                hiện thủ tục hành chính; dịch vụ công;
-              </p>
-            </div>
-            <div className='item'>
-              <div className='icon'>
-                <img src='/images/danhgia.svg' alt='' />
-              </div>
-              <p>Đánh giá sự hài lòng trong giải quyết thủ tục hành chính;</p>
-            </div>
           </div>
         </div>
 
@@ -105,8 +90,8 @@ const AboutPage = (): JSX.Element => {
             </p>
             <p className='main'>
               Hãy truy cập{' '}
-              <a href='https://www.dichvucong.gov.vn' className='link'>
-                www.dichvucong.gov.vn !
+              <a href='http://manage-service-front.herokuapp.com' className='link'>
+                http://manage-service-front.herokuapp.com !
               </a>
             </p>
           </div>

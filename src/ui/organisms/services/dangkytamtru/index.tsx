@@ -139,7 +139,7 @@ const DangKyTamTru = (): JSX.Element => {
                 </tr>
 
                 <tr>
-                  <td data-title='Tên giấy tờ'>Chứng minh nhân dân.</td>
+                  <td data-title='Tên giấy tờ'>Chứng minh nhân dân. (Khi đến nhận hồ sơ xin vui lòng mang theo)</td>
                   <td data-title='Mẫu đơn, tờ khai' style={{ cursor: 'pointer', color: '#283593' }}></td>
                   <td style={{ whiteSpace: 'nowrap' }} data-title='Số lượng'>
                     Bản chính: 1 - Bản sao: 0
@@ -147,7 +147,9 @@ const DangKyTamTru = (): JSX.Element => {
                 </tr>
 
                 <tr>
-                  <td data-title='Tên giấy tờ'>Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp</td>
+                  <td data-title='Tên giấy tờ'>
+                    Giấy tờ, tài liệu chứng minh chỗ ở hợp pháp (Khi đến nhận hồ sơ xin vui lòng mang theo)
+                  </td>
                   <td data-title='Mẫu đơn, tờ khai' style={{ cursor: 'pointer', color: '#283593' }}></td>
                   <td style={{ whiteSpace: 'nowrap' }} data-title='Số lượng'>
                     Bản chính: 1 - Bản sao: 0

@@ -43,7 +43,6 @@ const ContactPage = (): JSX.Element => {
     console.log('object')
   }
 
-  console.log('people :>> ', people)
   return (
     <>
       <div className='my-team'>
@@ -69,7 +68,6 @@ const ContactPage = (): JSX.Element => {
             <div className='section-center'>
               {people.map((person, personIndex) => {
                 const { id, image, phone, name, title, quote } = person
-                console.log('person :>> ', person)
                 let position = 'nextSlide'
                 if (personIndex === index) {
                   position = 'activeSlide'
