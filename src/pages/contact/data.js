@@ -33,7 +33,7 @@ const people = [
     id: 4,
     image:
       'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/51431010_857290361337809_1854487490237300736_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=eKGyXQqHMJsAX_7W15n&_nc_ht=scontent.fdad3-1.fna&oh=8a64c6d63dd944cc04a77462ace60b00&oe=60CF39F4',
-    name: 'Nguyễn Tiến Đỉnh',
+    name: 'Mai Văn Tiến Đỉnh',
     title: 'the boss',
     phone: '0339382945',
 

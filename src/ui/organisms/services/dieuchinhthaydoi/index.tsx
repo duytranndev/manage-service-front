@@ -125,7 +125,7 @@ const DieuChinhThayDoi = (): JSX.Element => {
                     chủ hộ hoặc người khác trong gia đình về việc thay đổi chủ hộ; Giấy khai sinh hoặc Quyết định được
                     phép thay đổi của cơ quan có thẩm quyền về đăng ký hộ tịch; Quyết định thay đổi địa giới hành chính,
                     đơn vị hành chính đường phố, số nhà của cơ quan nhà nước có thẩm quyền; giấy tờ chứng minh chỗ ở hợp
-                    pháp mới.
+                    pháp mới. (Khi đi nhận vui lòng đem theo)
                   </td>
                   <td data-title='Mẫu đơn, tờ khai' style={{ cursor: 'pointer', color: '#283593' }}>
                     {/* <a href='https://csdl.dichvucong.gov.vn/web/jsp/download_file.jsp?ma=3feb960b6e7d6d31'>
@@ -150,10 +150,7 @@ const DieuChinhThayDoi = (): JSX.Element => {
       <div className='divider-gray'></div>
       <h2 className='main-title-sub'>Yêu cầu, điều kiện thực hiện</h2>
       <div className='article'>
-        <p id='6177'>
-          Có giấy tờ, tài liệu chứng minh thuộc một trong các điều kiện đăng ký thường trú vào thành phố trực thuộc
-          Trung ương.
-        </p>
+        <p id='6177'></p>
       </div>
     </div>
   )

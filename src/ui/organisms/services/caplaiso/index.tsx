@@ -111,10 +111,7 @@ const CapLaiSoHoKhau = (): JSX.Element => {
       <div className='divider-gray'></div>
       <h2 className='main-title-sub'>Yêu cầu, điều kiện thực hiện</h2>
       <div className='article'>
-        <p id='6177'>
-          Có giấy tờ, tài liệu chứng minh thuộc một trong các điều kiện đăng ký thường trú vào thành phố trực thuộc
-          Trung ương.
-        </p>
+        <p id='6177'></p>
       </div>
     </div>
   )

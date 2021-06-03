@@ -124,10 +124,7 @@ const TachSoHoKhau = (): JSX.Element => {
       <div className='divider-gray'></div>
       <h2 className='main-title-sub'>Yêu cầu, điều kiện thực hiện</h2>
       <div className='article'>
-        <p id='6177'>
-          Có giấy tờ, tài liệu chứng minh thuộc một trong các điều kiện đăng ký thường trú vào thành phố trực thuộc
-          Trung ương.
-        </p>
+        <p id='6177'>Chủ hộ phải ghi vào phiếu báo thay đổi hộ khẩu, nhân khẩu đồng ý cho tách sổ hộ khẩu</p>
       </div>
     </div>
   )

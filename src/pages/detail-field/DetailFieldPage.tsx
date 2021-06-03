@@ -31,6 +31,11 @@ const DetailField = (): JSX.Element => {
         <div className='main-title'>Thông tin và dịch vụ dành cho {field?.name}</div>
 
         <div className='cong-dan-list'>
+          {units.length === 0 && (
+            <div style={{ marginLeft: '20px', fontSize: '110%' }}>
+              Hiện tại hệ thống chưa hỗ trợ xử lý dịch vụ công về lĩnh vực Doanh Nghiệp
+            </div>
+          )}
           {units.map((item, index) => {
             return (
               <LazyLoad height={200} offset={[-100, 0]} key={item._id} scroll={true}>

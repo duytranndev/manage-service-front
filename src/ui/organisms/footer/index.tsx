@@ -47,7 +47,7 @@ const Footer = (): JSX.Element => {
               <a href=''>Ngô Thanh Tú</a>
             </div>
             <div className='add'>
-              <a href=''>Nguyễn Tiến Đỉnh</a>
+              <a href=''>Mai Văn Tiến Đỉnh</a>
             </div>
           </Grid>
           <Grid item xs={2} className='url'>

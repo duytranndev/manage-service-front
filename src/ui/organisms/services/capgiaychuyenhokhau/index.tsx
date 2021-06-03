@@ -124,8 +124,17 @@ const CapGiayChuyenHoKhau = (): JSX.Element => {
       <h2 className='main-title-sub'>Yêu cầu, điều kiện thực hiện</h2>
       <div className='article'>
         <p id='6177'>
-          Có giấy tờ, tài liệu chứng minh thuộc một trong các điều kiện đăng ký thường trú vào thành phố trực thuộc
-          Trung ương.
+          + Giấy chuyển hộ khẩu được cấp cho công dân trong các trường hợp sau đây: chuyển đi ngoài phạm vi xã, thị trấn
+          của huyện thuộc tỉnh; chuyển đi ngoài phạm vi huyện, quận, thị xã của thành phố trực thuộc trung ương; thị xã,
+          thành phố thuộc tỉnh.
+        </p>
+        <p id='6177'>
+          + Trường hợp không phải cấp giấy chuyển hộ khẩu: chuyển đi trong phạm vi xã, thị trấn của huyện thuộc tỉnh;
+          chuyển đi trong cùng một huyện, quận, thị xã của thành phố trực thuộc trung ương; chuyển đi trong cùng một thị
+          xã, thành phố thuộc tỉnh; học sinh, sinh viên, học viên học tại nhà trường và cơ sở giáo dục khác; đi làm
+          nghĩa vụ quân sự, phục vụ có thời hạn trong Công an nhân dân; được tuyển dụng vào Quân đội nhân dân, Công an
+          nhân dân ở tập trung trong doanh trại hoặc nhà ở tập thể; chấp hành hình phạt tù; chấp hành quyết định đưa vào
+          trường giáo dưỡng, cơ sở giáo dục, cơ sở chữa bệnh, cơ sở cai nghiện ma tuý bắt buộc, quản chế.
         </p>
       </div>
     </div>
