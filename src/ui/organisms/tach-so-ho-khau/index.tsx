@@ -69,7 +69,7 @@ const TachHoKhau = ({ nameDocument }: any): JSX.Element => {
     const addProfile = moduleApi.create(PROFILE_URL, document)
     await toast.promise(addProfile, {
       loading: 'Loading',
-      success: 'Đăng ký xử lý dịch vụ thành công',
+      success: (res) => `Đăng ký xử lý dịch vụ thành công, mã hồ sơ của bạn là: ${res.data.data.profileCode}`,
       error: 'Đăng ký xử lý dịch vụ thất bại'
     })
     const status = await addProfile.then((res) => res.data.message)

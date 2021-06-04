@@ -84,7 +84,7 @@ const SearchComponent = (): JSX.Element => {
                       htmlType='submit'
                       className='btn-search'
                       size='large'
-                      style={{ width: '100%' }}
+                      style={{ width: '100%', height: '37px' }}
                       icon={<SearchOutlined />}>
                       Tìm kiếm
                     </Button>

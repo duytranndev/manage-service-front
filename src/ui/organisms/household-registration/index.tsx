@@ -11,7 +11,7 @@ import './index.scss'
 const { Step } = Steps
 
 const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
-  const [step, setStep] = useState<number>(3)
+  const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,
@@ -68,7 +68,7 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
     const addProfile = moduleApi.create(PROFILE_URL, document)
     await toast.promise(addProfile, {
       loading: 'Loading',
-      success: 'Đăng ký xử lý dịch vụ thành công',
+      success: (res) => `Đăng ký xử lý dịch vụ thành công, mã hồ sơ của bạn là: ${res.data.data.profileCode}`,
       error: 'Đăng ký xử lý dịch vụ thất bại'
     })
     const status = await addProfile.then((res) => res.data.message)

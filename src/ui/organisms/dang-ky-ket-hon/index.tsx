@@ -1,15 +1,18 @@
-import { Steps } from 'antd'
-import Modal from 'antd/lib/modal/Modal'
+import { Modal } from 'antd'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router'
 import { PROFILE_URL } from '../../../share/common/api.constants'
 import { moduleApi } from '../../../share/handle/api.module'
-import ChangementPaper from '../household/changement-paper'
-const { Step } = Steps
+import MarriageRegistrationStatement from '../document/marriage-registration-statement'
 
-const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
+const MarriageRegistration = ({ nameDocument }: any): JSX.Element => {
   const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const dispatch = useDispatch()
+  const history = useHistory()
+
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined
   })
@@ -21,61 +24,62 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
       firstForm: values
     })
   }
-  const handleSecondFormChange = (values: any) => {
-    console.log('values :>> ', values)
-
-    setFormValues({
-      ...formValues,
-      secondForm: values
-    })
-  }
-  const handleThirdFormCChange = (values: any) => {
-    console.log('values :>> ', values)
-
-    setFormValues({
-      ...formValues,
-      thirdForm: values
-    })
-  }
 
   const nextStep = () => {
     setStep((state) => state + 1)
   }
 
   const prevStep = () => {
-    if (step === 1) return null
+    if (step === 0) return null
     setStep((state) => state - 1)
   }
 
   const handleOnConfirm = async () => {
     const document = {
-      name: formValues.firstForm?.name,
-      address: formValues.firstForm?.temporaryAddress,
-      phone: formValues.firstForm?.phone,
+      name: formValues.firstForm?.nameHusband,
+      address: formValues.firstForm?.addressHusband,
+      phone: formValues.firstForm?.phoneHusband,
       fieldName: 'Dân sự',
       nameDocument: nameDocument,
       profiles: {
-        changementPaper: formValues.firstForm
+        marriageRegistrationStatement: formValues.firstForm
       }
     }
+    console.log('document :>> ', document)
     const addProfile = moduleApi.create(PROFILE_URL, document)
-    await toast.promise(addProfile, {
-      loading: 'Loading',
-      success: (res) => `Đăng ký xử lý dịch vụ thành công, mã hồ sơ của bạn là: ${res.data.data.profileCode}`,
-      error: 'Đăng ký xử lý dịch vụ thất bại'
-    })
+    await toast.promise(
+      addProfile,
+      {
+        loading: 'Loading',
+        success: (res) => `Đăng ký xử lý dịch vụ thành công, mã hồ sơ của bạn là: ${res.data.data.profileCode}`,
+        error: (err) => `Đăng ký xử lý dịch vụ thất bại ${err.toString()}`
+      },
+      {
+        style: {
+          minWidth: '250px',
+          fontSize: '110%'
+        },
+        success: {
+          duration: 15000,
+          icon: '🔥'
+        }
+      }
+    )
     const status = await addProfile.then((res) => res.data.message)
     const data = await addProfile.then((res) => res.data.data)
     if (status === 'success') {
-      console.log('data :>> ', data)
       setFormValues({})
       setStep(1)
+      setIsModalVisible(false)
+      dispatch({ type: 'SET_PROFILE', payload: data })
+      //   history.push('/my-profile')
+    } else {
       setIsModalVisible(false)
     }
   }
 
   const handleCancel = () => {
-    setStep(1)
+    setStep((step) => step - 1)
     setIsModalVisible(false)
   }
 
@@ -87,20 +91,17 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
     switch (visible) {
       case 1:
         return (
-          <ChangementPaper
+          <MarriageRegistrationStatement
             parentValues={formValues.firstForm}
-            prevStep={prevStep}
             nextStep={nextStep}
-            onNextStep={handleSecondFormChange}
+            onNextStep={handleFirstFormChange}
           />
         )
       case 2:
         return (
           <>
             <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOnConfirm} onCancel={handleCancel}>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
+              Bạn đã chắc chắn?
             </Modal>
           </>
         )
@@ -111,5 +112,4 @@ const CapLaiSo = ({ nameDocument }: any): JSX.Element => {
 
   return <>{Steps(step)}</>
 }
-
-export default CapLaiSo
+export default MarriageRegistration

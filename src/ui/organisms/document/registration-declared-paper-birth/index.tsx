@@ -65,6 +65,7 @@ const RegistrationDeclaredPaperBirth = ({ parentValues, onNextStep, nextStep }: 
         }}>
         Tờ khai đăng ký khai sinh
       </header>
+
       <Form layout='horizontal' wrapperCol={{ span: 16 }} onSubmitCapture={continueStep} hideRequiredMark>
         <div className={classes.root}>
           <header style={{ margin: '10px 5px 10px', fontSize: '130%', fontWeight: 500 }}>

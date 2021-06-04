@@ -67,16 +67,24 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleChangeAboutFamily = (index: number, e: ChangeEvent<HTMLInputElement>) => {
-    const values = [...aboutFamily]
-    values[index][e.target.name] = e.target.value
-    setAboutFamily(values)
+  const handleChangeAboutFamily = (id: string, e: ChangeEvent<HTMLInputElement>) => {
+    const newAboutFamily = aboutFamily.map((item: { [x: string]: string; _id: string }) => {
+      if (id === item._id) {
+        item[e.target.name] = e.target.value
+      }
+      return item
+    })
+    setAboutFamily(newAboutFamily)
   }
 
-  const handleChangeAboutYourSelf = (index: number, e: ChangeEvent<HTMLInputElement>) => {
-    const values = [...aboutYourself]
-    values[index][e.target.name] = e.target.value
-    setAboutYourself(values)
+  const handleChangeAboutYourSelf = (id: string, e: ChangeEvent<HTMLInputElement>) => {
+    const newAboutYourself = aboutYourself.map((item: { [x: string]: string; _id: string }) => {
+      if (id === item._id) {
+        item[e.target.name] = e.target.value
+      }
+      return item
+    })
+    setAboutYourself(newAboutYourself)
   }
 
   const handleAddAboutFamily = () => {
@@ -140,8 +148,9 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
       aboutFamily,
       aboutYourself
     }
-    onNextStep(thirdFormData)
-    nextStep()
+    console.log('thirdFormData :>> ', thirdFormData)
+    // onNextStep(thirdFormData)
+    // nextStep()
   }
 
   const comeBackStep = () => {
@@ -166,7 +175,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
             <Grid item xs={9}>
               <TextField
                 id='standard-full-width'
-                label='Họ và tên'
+                label='Họ và tên (1)'
                 style={{ margin: 8 }}
                 placeholder='Họ và tên'
                 name='name'
@@ -368,7 +377,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
             <Grid item xs={6}>
               <TextField
                 id='standard-full-width'
-                label='Trình độ học vấn'
+                label='Trình độ học vấn (2)'
                 style={{ margin: 8 }}
                 placeholder='Trình độ học vấn'
                 name='education'
@@ -384,7 +393,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
             <Grid item xs={6}>
               <TextField
                 id='standard-full-width'
-                label='Trình độ chuyên môn'
+                label='Trình độ chuyên môn (3)'
                 style={{ margin: 8 }}
                 placeholder='Trình độ chuyên môn'
                 name='specialize'
@@ -464,7 +473,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
           </Grid>
         </div>
         <header style={{ margin: '10px 6px 10px', fontSize: '120%', fontWeight: 500 }}>
-          Tóm tắt về gia đình (Bố, mẹ; vợ/chồng; con; anh, chị, em ruột):
+          Tóm tắt về gia đình (Bố, mẹ; vợ/chồng; con; anh, chị, em ruột) (4):
         </header>
         <div className={classes.root} style={{ marginLeft: 6 }}>
           {aboutFamily.map((item: any, index: number) => {
@@ -477,7 +486,7 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
                     size='small'
                     color='secondary'
                     name='name'
-                    value={item?.name}
+                    value={item?.name || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeAboutFamily(item._id, e)}
                     fullWidth
                     InputLabelProps={{
@@ -645,6 +654,23 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
               </Grid>
             )
           })}
+        </div>
+        <header style={{ margin: '15px 5px 5px', fontSize: '130%', fontWeight: 600, display: 'inline-block' }}>
+          *Chú thích
+        </header>
+
+        <div className='article' style={{ marginLeft: '15px', display: 'inline-block' }}>
+          <p id='6177'>
+            (1) Viết chữ in hoa đủ dấu;
+            <br />
+            (2) Ghi rõ trình độ học vấn cao nhất (Tiến sỹ, Thạc sỹ, Đại học, Cao đẳng, Trung cấp, tốt nghiệp phổ thông
+            trung học, tốt nghiệp phổ thông cơ sở...; nếu không biết chữ thì ghi rõ "không biết chữ");
+            <br />
+            (3) Ghi rõ chuyên ngành được đào tạo hoặc trình độ tay nghề, bậc thợ, chuyên môn kỹ thuật khác được ghi
+            trong văn bằng, chứng chỉ.
+            <br />
+            (4) Ghi cả cha, mẹ, con nuôi; người nuôi dưỡng; người giám hộ theo quy định của pháp luật (nếu có).
+          </p>
         </div>
         <ButtonGroup>
           <Button

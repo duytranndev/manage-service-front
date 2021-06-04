@@ -136,7 +136,7 @@ export default function TransferPaper({ onNextStep, nextStep, parentValues }: St
             <Grid item xs={9}>
               <TextField
                 id='standard-full-width'
-                label='Họ và tên'
+                label='Họ và tên (1)'
                 style={{ margin: 8 }}
                 placeholder='Họ và tên'
                 fullWidth
@@ -327,7 +327,7 @@ export default function TransferPaper({ onNextStep, nextStep, parentValues }: St
           </Grid>
         </div>
         <header style={{ margin: '10px 5px 10px', fontSize: '130%', fontWeight: 500 }}>
-          Những người trong hộ cùng chuyển hộ khẩu
+          Những người trong hộ cùng chuyển hộ khẩu (2)
         </header>
         <div className={classes.root} style={{ marginLeft: 6 }}>
           {inputFields.map((item: any, index: number) => {
@@ -446,7 +446,7 @@ export default function TransferPaper({ onNextStep, nextStep, parentValues }: St
                 <Grid item xs={1}>
                   <TextField
                     id='standard-secondary'
-                    label='Quan hệ'
+                    label='Quan hệ (3)'
                     onChange={(e: ChangeEvent<HTMLInputElement>) => handleChangeFieldInput(item._id, e)}
                     size='small'
                     color='secondary'
@@ -472,6 +472,22 @@ export default function TransferPaper({ onNextStep, nextStep, parentValues }: St
               </Grid>
             )
           })}
+          <header style={{ margin: '15px 5px 5px', fontSize: '130%', fontWeight: 600, display: 'inline-block' }}>
+            *Chú thích
+          </header>
+
+          <div className='article' style={{ margin: '15px', display: 'inline-block' }}>
+            <p id='6177'>
+              (1) Viết chữ in hoa đủ dấu;
+              <br />
+              (2) Ghi theo sổ đăng ký thường trú, sổ hộ khẩu các thông tin của người trong hộ cùng chuyển hộ khẩu.
+              <br />
+              (3) Ghi mối quan hệ với người chuyển hộ khẩu tại Mục 1.
+              <br />
+              Ghi chú: Lập 02 bản, một bản cấp cho công dân để nộp tại nơi đăng ký thường trú, một bản lưu tại nơi cấp
+              giấy.
+            </p>
+          </div>
 
           <Button
             type='submit'

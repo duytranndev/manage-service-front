@@ -140,7 +140,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
             <Grid item xs={9}>
               <TextField
                 id='standard-full-width'
-                label='Họ và tên'
+                label='Họ và tên (1)'
                 required
                 style={{ margin: 8 }}
                 placeholder='Họ và tên'
@@ -240,7 +240,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
             <Grid item xs={9}>
               <TextField
                 id='standard-full-width'
-                label='Họ và tên'
+                label='Họ và tên (1)'
                 required
                 style={{ margin: 8 }}
                 placeholder='Họ và tên'
@@ -465,7 +465,7 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
             <Grid item xs={12}>
               <TextField
                 id='standard-full-width'
-                label='Nội dung thay đổi hộ khẩu, nhân khẩu'
+                label='Nội dung thay đổi hộ khẩu, nhân khẩu (2)'
                 style={{ margin: 8 }}
                 required
                 name='content'
@@ -626,6 +626,28 @@ export default function ChangementPaper({ parentValues, onNextStep, nextStep, pr
             )
           })}
         </div>
+        <header style={{ margin: '15px 5px 5px', fontSize: '130%', fontWeight: 600, display: 'inline-block' }}>
+          *Chú thích
+        </header>
+
+        <div className='article' style={{ marginLeft: '15px', display: 'inline-block' }}>
+          <p id='6177'>
+            (1) Viết chữ in hoa đủ dấu;
+            <br />
+            (2) Ghi tóm tắt nội dung thay đổi hộ khẩu, nhân khẩu. Ví dụ: đăng ký thường trú, tạm trú; thay đổi nơi đăng
+            ký thường trú, tạm trú; tách sổ hộ khẩu; điều chỉnh những thay đổi trong sổ hộ khẩu ...
+            <br />
+            (3) Ghi rõ ý kiến của chủ hộ là đồng ý cho đăng ký thường trú, đăng ký tạm trú hoặc đồng ý cho tách sổ hộ
+            khẩu; chủ hộ ký và ghi rõ họ tên, ngày, tháng, năm.
+            <br />
+            (4) Áp dụng đối với trường hợp: Xác nhận việc công dân trước đây đã đăng ký thường trú và trường hợp cấp lại
+            sổ hộ khẩu do bị mất.
+            <br />
+            Ghi chú: Trường hợp người viết phiếu báo cũng là người có thay đổi hộ khẩu, nhân khẩu thì công dân chỉ cần
+            kê khai những nội dung quy định tại mục II
+          </p>
+        </div>
+
         <ButtonGroup>
           <Button
             variant='contained'

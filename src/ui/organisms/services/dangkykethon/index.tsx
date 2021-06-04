@@ -2,7 +2,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import { useState } from 'react'
 import DrawerComponent from '../../../molecules/Drawer'
-import SignUpForBirth from '../../dang-ky-khai-sinh'
+import MarriageRegistration from '../../dang-ky-ket-hon'
 
 const DangKyKetHon = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -30,14 +30,14 @@ const DangKyKetHon = () => {
       <div className='head'>
         <div className='pull-left'>
           <h1 className='main-title'></h1>
-          <h1 className='main-title'>Đăng ký khai sinh</h1>
+          <h1 className='main-title'>Thủ tục đăng ký kết hôn</h1>
         </div>
         <div className='pull-right'>
           <Button type='primary' size='middle' className='btn-main' onClick={showDrawer}>
             <PlusOutlined /> Đăng ký xử lý dịch vụ trực tuyến
           </Button>
-          <DrawerComponent title='Đăng ký khai sinh' onClose={onClose} visible={visible} width={1080}>
-            <SignUpForBirth nameDocument='Đăng ký khai sinh' />
+          <DrawerComponent title='Đăng ký kết hôn' onClose={onClose} visible={visible} width={1080}>
+            <MarriageRegistration nameDocument='Đăng ký kết hôn' />
           </DrawerComponent>
         </div>
         <div className='clearfix'></div>
@@ -141,7 +141,7 @@ const DangKyKetHon = () => {
                   <td data-title='Tên giấy tờ'>
                     - Bản chính Giấy xác nhận tình trạng hôn nhân do Ủy ban nhân dân cấp xã có thẩm quyền cấp trong
                     trường hợp người yêu cầu đăng ký kết hôn không đăng ký thường trú tại địa bàn xã, phường, thị trấn
-                    làm thủ tục đăng ký kết hôn (trong giai đoạn chuyển tiếp).
+                    làm thủ tục đăng ký kết hôn (trong giai đoạn chuyển tiếp, khi đi vui lòng đem theo).
                   </td>
                   <td></td>
                   <td style={{ whiteSpace: 'nowrap' }} data-title='Số lượng'>
