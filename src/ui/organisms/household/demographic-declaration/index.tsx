@@ -148,9 +148,8 @@ export default function DemographicDeclaration({ onNextStep, nextStep, prevStep,
       aboutFamily,
       aboutYourself
     }
-    console.log('thirdFormData :>> ', thirdFormData)
-    // onNextStep(thirdFormData)
-    // nextStep()
+    onNextStep(thirdFormData)
+    nextStep()
   }
 
   const comeBackStep = () => {

@@ -1,4 +1,3 @@
-import { Steps } from 'antd'
 import Modal from 'antd/lib/modal/Modal'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
@@ -8,10 +7,9 @@ import ChangementPaper from '../household/changement-paper'
 import DemographicDeclaration from '../household/demographic-declaration'
 import TransferPaper from '../household/transfer-paper'
 import './index.scss'
-const { Step } = Steps
 
 const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
-  const [step, setStep] = useState<number>(1)
+  const [step, setStep] = useState<number>(2)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,
@@ -20,23 +18,18 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
   })
 
   const handleFirstFormChange = (values: any) => {
-    console.log('values :>> ', values)
     setFormValues({
       ...formValues,
       firstForm: values
     })
   }
   const handleSecondFormChange = (values: any) => {
-    console.log('values :>> ', values)
-
     setFormValues({
       ...formValues,
       secondForm: values
     })
   }
   const handleThirdFormCChange = (values: any) => {
-    console.log('values :>> ', values)
-
     setFormValues({
       ...formValues,
       thirdForm: values
@@ -74,7 +67,6 @@ const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
     const status = await addProfile.then((res) => res.data.message)
     const data = await addProfile.then((res) => res.data.data)
     if (status === 'success') {
-      console.log('data :>> ', data)
       setFormValues({})
       setStep(1)
       setIsModalVisible(false)

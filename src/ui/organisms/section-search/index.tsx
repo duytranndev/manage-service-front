@@ -1,4 +1,4 @@
-import { CloseOutlined, SearchOutlined } from '@ant-design/icons'
+import { CloseCircleOutlined, SearchOutlined } from '@ant-design/icons'
 import Grid from '@material-ui/core/Grid'
 import 'antd/dist/antd.css'
 import Button from 'antd/lib/button'
@@ -24,6 +24,15 @@ const SearchComponent = (): JSX.Element => {
 
   const handleOnSearch = async (e: any) => {
     e.preventDefault()
+    if (searchResult.length > 0) {
+      setKeyWord('')
+      setSearchResult([])
+      return null
+    }
+    if (!keyWord) {
+      toast.error('Vui lòng nhập vào mã hồ sơ!!')
+      return null
+    }
     const searchPromise = moduleApi.get(`${PROFILE_URL}?search=${keyWord}`)
     await toast.promise(
       searchPromise,
@@ -85,8 +94,8 @@ const SearchComponent = (): JSX.Element => {
                       className='btn-search'
                       size='large'
                       style={{ width: '100%', height: '37px' }}
-                      icon={<SearchOutlined />}>
-                      Tìm kiếm
+                      icon={searchResult.length > 0 ? <CloseCircleOutlined /> : <SearchOutlined />}>
+                      {searchResult.length > 0 ? 'Huỷ tìm kiếm' : 'Tìm kiếm'}
                     </Button>
                   </Grid>
                 </Grid>
@@ -111,17 +120,9 @@ const SearchComponent = (): JSX.Element => {
                       </div>
                     ))}
                   </div>
-                  <div className='icon' onClick={handleSetDefault}>
-                    <CloseOutlined />
-                  </div>
                 </div>
               )}
             </div>
-          </div>
-          <div className='actions'>
-            <Grid container spacing={0}>
-              <Grid item xs={12}></Grid>
-            </Grid>
           </div>
         </div>
       </div>

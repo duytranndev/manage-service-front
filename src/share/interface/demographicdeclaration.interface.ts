@@ -15,7 +15,8 @@ export interface DemographicDeclarationInterface {
   reason?: string //lý do
   passport?: number //hộ chiếu
   criminalRecord?: string // tiền án, tiền sự
-  familySummary?: string // tóm tắt về gia đình
+  aboutFamily?: [] // tóm tắt về gia đình
+  aboutYourself?: [] // tóm tắt về ban than
   education?: string // trinh do hoc van
   specialize?: string // trinh do chuyen mon
   ethnicity?: string // tieng dan toc
