@@ -1,7 +1,5 @@
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
-import { Button } from 'antd'
-import Form from 'antd/lib/form/Form'
 import { useEffect, useState } from 'react'
 import Image from '../../ui/atom/image'
 import data from './data.js'
@@ -183,51 +181,13 @@ const ContactPage = (): JSX.Element => {
         <div className='row'>
           <Image src='/images/posters/map.png' style={{ width: '100%' }} />
         </div>
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <h2>Liên hệ với chúng tôi</h2>
-        </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}></div>
         <div className='row'>
           <div className='column'>
             <Image
               src='https://econtract.fpt.com.vn/wp-content/themes/Newspaper/fptecontract/img/slides/banner2.png'
               style={{ width: '100%' }}
             />
-          </div>
-          <div className='column'>
-            <Form onSubmitCapture={handleOnSubmit} style={{ width: '100%' }}>
-              <label>Your Name</label>
-              <input
-                type='text'
-                name='name'
-                onChange={handleOnChange}
-                value={formContact.name}
-                placeholder='Your name..'
-              />
-              <label>Your Email</label>
-              <input
-                type='text'
-                name='email'
-                onChange={handleOnChange}
-                value={formContact.email}
-                placeholder='Your Email..'
-              />
-              <label htmlFor='subject'>Subject</label>
-              <textarea
-                id='subject'
-                name='subject'
-                onChange={(e) => handleOnChange(e)}
-                placeholder='Write something..'
-                style={{ height: '170px' }}
-                value={formContact.subject}
-              />
-              <Button
-                style={{ textAlign: 'center', width: '20%', marginLeft: '40%' }}
-                type='primary'
-                htmlType='submit'
-                defaultValue='Submit'>
-                Nộp
-              </Button>
-            </Form>
           </div>
         </div>
       </div>

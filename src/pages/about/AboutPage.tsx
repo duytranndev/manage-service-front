@@ -15,15 +15,12 @@ const AboutPage = (): JSX.Element => {
         </ul>
         <h1 className='main-title -none'>Giới thiệu về Cổng Dịch vụ công Quốc gia</h1>
         <div className='article'>
-          <p>
-            <img src='/images/gioi-thieu-slider.png' alt='' />
-          </p>
-          <p>
+          <>
             Với quan điểm công khai, minh bạch, lấy người dân, doanh nghiệp làm trung tâm phục vụ, Cổng Dịch vụ công
             Quốc gia kết nối, cung cấp thông tin về thủ tục hành chính và dịch vụ công trực tuyến; hỗ trợ thực hiện,
             giám sát, đánh giá việc giải quyết thủ tục hành chính, dịch vụ công trực tuyến và tiếp nhận, xử lý phản ánh,
             kiến nghị của cá nhân, tổ chức trên toàn quốc.
-          </p>
+          </>
           <p>
             Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất
             <a href='http://manage-service-front.herokuapp.com/'> http://manage-service-front.herokuapp.com</a>
