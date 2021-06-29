@@ -9,7 +9,7 @@ import TransferPaper from '../household/transfer-paper'
 import './index.scss'
 
 const HouseholdRegistration = ({ nameDocument }: any): JSX.Element => {
-  const [step, setStep] = useState<number>(2)
+  const [step, setStep] = useState<number>(1)
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [formValues, setFormValues] = useState<any>({
     firstForm: undefined,
